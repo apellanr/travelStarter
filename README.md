@@ -1,4 +1,4 @@
-# C4.17_travel_starter
+# C4.17_travelStarter
 
 #### Senior Devs
 - Ryan A
@@ -9,13 +9,13 @@
 - Jinwoo C
 
 #### Junior Devs
-- ?
+- Dennis Dang
 
 #### Producer
-- ?
+- Dan Paschal
 
 #### Project Manager
-- ?
+- Scott Bowler
 
 
 Summary
