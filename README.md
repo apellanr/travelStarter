@@ -1,12 +1,12 @@
 # C4.17_travelStarter
 
 #### Senior Devs
-- Ryan A
-- Insoo L
-- Anna T
-- Seung L
-- David S
-- Jinwoo C
+- Ryan Apellanes
+- Insoo Lee
+- Anna Thomas
+- Seung "Alex" Lee
+- David Sung
+- Jinwoo Cho
 
 #### Junior Devs
 - Dennis Dang
