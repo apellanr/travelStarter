@@ -14,6 +14,7 @@ const App = () => (
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/buildsearch">Build/Search Page</Link></li>
+
             </ul>
 
             <Route exact path="/" component={Home} />
