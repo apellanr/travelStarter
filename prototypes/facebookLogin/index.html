@@ -23,14 +23,25 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <script>
 
+</head>
+<body>
+    <button>check login</button>
+
+    <fb:login-button
+            scope="public_profile,email"
+            onlogin="checkLogin();">
+    </fb:login-button>
+</body>
+<script>
+    function checkLogin(){
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
         });
-    </script>
-</head>
-<body>
-
-</body>
+    }
+    function statusChangeCallback(facebookResponse){
+        console.log('login status changed!',facebookResponse);
+    }
+    document.querySelector('button').addEventListener('click',checkLogin);
+</script>
 </html>
