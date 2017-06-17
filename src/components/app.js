@@ -7,6 +7,8 @@ import {
 import './app.css';
 import Home from './home';
 import BuildSearch from './buildsearch';
+import Itinerary from './my_itineraries';
+
 
 const App = () => (
     <Router>
@@ -19,6 +21,7 @@ const App = () => (
 
             <Route exact path="/" component={Home} />
             <Route path="/buildsearch" component={BuildSearch} />
+            <Route path="/my_itineraries" component={Itinerary}/>
         </div>
     </Router>
 );

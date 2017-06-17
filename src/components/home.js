@@ -6,7 +6,7 @@ import {
 import  Build from './build';
 import Itinerary from './my_itineraries';
 
-// export default () => {
+
 class Home extends Component{
   render() {
         return (
@@ -18,8 +18,8 @@ class Home extends Component{
                     <li><Link to="/buildsearch/build">Build</Link></li>
                 </ul>
 
-                <Route path ="./buildSerach/build" component={Build}/>
-                <Route path ="/my_itineraries" component={Itinerary}/>
+                <Route path ="./buildsearch/build" component={Build}/>
+                <Route path ="./my_itineraries" component={Itinerary}/>
             </div>
         )
     }
