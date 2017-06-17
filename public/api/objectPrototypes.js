@@ -3,11 +3,11 @@
 var service;
 var location;
 
-function ItineraryObj () {
-    this.timeCreated = new Date();
-    this.tags = [];
-    this.listItems = [];
-}
+// function ItineraryObj () {
+//     this.timeCreated = new Date();
+//     this.tags = [];
+//     this.listItems = [];
+// }
 
 function CityObj (){
     this.name = null;
@@ -20,18 +20,18 @@ function CityObj (){
     this.recommendations = []
 }
 
-function PoiObj () {
-    this.name = null;
-    this.rating = null;
-    this.address = null;
-    this.description = null;
-    this.images = [];
-    this.metadata = {
-        'latlong': [],
-        'locality': [],
-        'entityType': ['pointOfInterest'],
-    }
-}
+// function PoiObj () {
+//     this.name = null;
+//     this.rating = null;
+//     this.address = null;
+//     this.description = null;
+//     this.images = [];
+//     this.metadata = {
+//         'latlong': [],
+//         'locality': [],
+//         'entityType': ['pointOfInterest'],
+//     }
+// }
 
 //madrid
 
