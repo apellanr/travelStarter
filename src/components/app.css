@@ -21,3 +21,16 @@
         transform: rotate(360deg);
     }
 }
+
+.icon-text:hover {
+    color: #FDB927;;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.icon-text {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: rubik, 'Helvetica', serif;
+}
