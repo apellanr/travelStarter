@@ -7,6 +7,7 @@ import {
 import './app.css';
 import Home from './home';
 import BuildSearch from './buildsearch';
+import Itinerary from './my_itineraries';
 import FindItin from './discover';
 
 const nav_links = [
@@ -40,6 +41,7 @@ const App = () => (
 
                 <Route exact path="/" component={Home} />
                 <Route path="/buildsearch" component={BuildSearch} />
+                <Route path="/my_itineraries" component={Itinerary}/>
                 <Route path="/discover" component={FindItin} />
             </div>
         </div>
