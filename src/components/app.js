@@ -5,6 +5,7 @@ import {
     Route
 } from 'react-router-dom';
 import './app.css';
+import Navbar from './navbar';
 import Home from './home';
 import BuildSearch from './buildsearch';
 import Itinerary from './my_itineraries';
@@ -32,6 +33,7 @@ const nav_links = [
 const App = () => (
     <Router>
         <div>
+            <Navbar links={nav_links} brand="travelStarter"/>
             <div className="container">
                 <ul>
                     <li><Link to="/">Home</Link></li>
