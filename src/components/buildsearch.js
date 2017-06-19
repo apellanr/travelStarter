@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import Build from './build';
 import Search from './search';
+import Footer from './footer';
 
 class BuildSearch extends Component {
     render() {
@@ -18,6 +19,7 @@ class BuildSearch extends Component {
 
                 <Route path="/buildsearch/build" component={Build}/>
                 <Route path="/buildsearch/search" component={Search}/>
+                <Footer />
             </div>
         )
     }
