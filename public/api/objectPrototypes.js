@@ -6,7 +6,9 @@ var location;
 // function ItineraryObj () {
 //     this.timeCreated = new Date();
 //     this.tags = [];
-//     this.listItems = [];
+//     this.listItems = [
+//          idNumber;
+// ];
 // }
 
 function CityObj (){
@@ -21,6 +23,7 @@ function CityObj (){
 }
 
 // function PoiObj () {
+//     this.idNumber = null;
 //     this.name = null;
 //     this.rating = null;
 //     this.address = null;
