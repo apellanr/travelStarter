@@ -34,7 +34,7 @@ const App = () => (
     <Router>
         <div>
             <Navbar links={nav_links} brand="travelStarter"/>
-            <div className="container">
+            <div>
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/buildsearch">Build/Search Page</Link></li>

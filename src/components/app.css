@@ -1,25 +1,5 @@
-.app {
-    background-color: #000;
-    color: #fff;
-    padding: 50px;
-    text-align: center;
-}
-
-.app img {
-    height: 100px;
-}
-
-.rotate {
-    animation: spin 10s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+#root {
+    margin-bottom: 70px;
 }
 
 .icon-text:hover {
@@ -32,10 +12,28 @@
     color: white;
     text-decoration: none;
     font-size: 14px;
-    font-family: rubik, 'Helvetica', serif;
 }
 
 .card-img-top {
     max-width: 100%;
     height: auto;
+}
+
+.jumbotron {
+    margin-top: 0;
+    height: 100vh;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.jumbo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:100%;
+    color: white;
 }
