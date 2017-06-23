@@ -3,7 +3,7 @@ import WorldImg from './imgs/world.png';
 
 const SideNav = (props) => {
     return (
-        <div className={`hidden-sideNav ${props.visible ? 'visible': ''}`}>
+        <div className={props.className}>
             <img src={WorldImg} className="img-fluid sideNav-img" alt="Responsive image"/>
             <div className="container sideNav-links">
             <a href="#">Home</a>
