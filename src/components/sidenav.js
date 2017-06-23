@@ -1,13 +1,11 @@
 import React from 'react';
-import WorldImg from './imgs/world.png';
-import Globe from './imgs/globe-icon.png';
+import Logo from './imgs/travelstarter_logo.png';
 
 const SideNav = (props) => {
     return (
         <div className={props.className}>
-            <div className="row sidenav-header">
-                
-            </div>
+            <img className="img-fluid sideNav-img"src={Logo} alt="Logo"/>
+            <hr />
             {/*<img src={WorldImg} className="img-fluid sideNav-img" alt="Responsive image"/>*/}
             <div className="container sideNav-links">
             <a href="#">Home</a>
