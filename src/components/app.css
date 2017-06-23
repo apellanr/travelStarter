@@ -6,6 +6,10 @@
     font-family: 'Playfair Display', serif;
 }
 
+.nav-container, .footer{
+   background-color: #26628A;
+}
+
 .icon-text:hover {
     color: #FDB927;;
     text-decoration:none;

@@ -28,7 +28,7 @@ class Navbar extends Component {
         let className = this.state.shiftIn ? 'hidden-sideNav visible' : 'hidden-sideNav';
         return (
             <div className="nav-container">
-                <nav className="navbar navbar-toggleable-md navbar-inverse bg-primary">
+                <nav className="navbar navbar-toggleable-md navbar-inverse bg-default">
                     <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <Icon handleClick={() => this.menuIconClick()}/>
                     </button>
