@@ -20,27 +20,27 @@ class Navbar extends Component {
     menuIconClick() {
         console.log('burger clicked');
         this.setState({
-            shiftIn: !this.state.open
+            shiftIn: !this.state.shiftIn
         });
     }
 
-    render() {        
+    render() {  
+        let className = this.state.shiftIn ? 'hidden-sideNav visible' : 'hidden-sideNav';
         return (
             <div className="nav-container">
-                <nav className="navbar navbar-toggleable-md navbar-inverse bg-primary">
-                    <button className="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <nav className="navbar navbar-toggleable-md navbar-inverse bg-default">
+                    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <Icon handleClick={() => this.menuIconClick()}/>
                     </button>
-                    <Link to="/" className="navbar-brand text-center">{this.props.brand}</Link>
+                    <Link to="/" className="navbar-brand">{this.props.brand}</Link>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             {this.linkElements}
                         </ul>
                     </div>
-                    <SideNav visible={this.state.shiftIn}/>
+                    <SideNav className={className}/>
                 </nav>
             </div>
-            
         )
     }
 }

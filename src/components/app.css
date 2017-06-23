@@ -6,6 +6,10 @@
     font-family: 'Playfair Display', serif;
 }
 
+.nav-container, .footer{
+   background-color: #26628A;
+}
+
 .icon-text:hover {
     color: #FDB927;;
     text-decoration:none;
@@ -74,7 +78,7 @@
 }
 
 .sideNav-links {
-    margin-top: 120px;
+        margin-top: 5px;
 }
 
 .hidden-sideNav a {
@@ -95,7 +99,14 @@
     color: rgb(25, 106, 229);
 }
 
+hr {
+    margin-top: -6px;
+}
+
 .sideNav-img {
     position: absolute;
-    top: 0;
+    top: 11px;
+    left: 30px;
+    width: 226px;
+    height: 36px;
 }
