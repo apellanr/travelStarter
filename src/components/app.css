@@ -6,7 +6,7 @@
     font-family: 'Playfair Display', serif;
 }
 
-.nav-container, .footer{
+.navbar, .footer {
    background-color: #26628A;
 }
 
@@ -30,6 +30,7 @@
 .jumbotron {
     margin-top: 0;
     height: 100vh;
+    border-radius: 0;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -100,7 +101,7 @@
 }
 
 hr {
-    margin-top: -6px;
+    margin-top: -7px;
 }
 
 .sideNav-img {
