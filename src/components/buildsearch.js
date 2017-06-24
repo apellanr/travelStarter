@@ -13,12 +13,12 @@ class BuildSearch extends Component {
             <div>
                 <h1>Build/Search Page</h1>
                 <ul>
-                    <li><Link to="/buildsearch/build">Build</Link></li>
-                    <li><Link to="/buildsearch/search">Search</Link></li>
+                    <li><Link to="/buildsearch/build/:id">Build</Link></li>
+                    <li><Link to="/buildsearch/search/:id">Search</Link></li>
                 </ul>
 
-                <Route path="/buildsearch/build" component={Build}/>
-                <Route path="/buildsearch/search" component={Search}/>
+                <Route path="/buildsearch/build/:id" component={Build}/>
+                <Route path="/buildsearch/search/:id" component={Search}/>
                 <Footer />
             </div>
         )
