@@ -35,14 +35,13 @@ class Home extends Component{
                     <Link to="/my_itineraries"><img src={Publish} alt="Saved" className="profile-icons"/><br/>My Trips</Link>
                 </div>
                 <div className="col-6 ballicon">
-                    <img src={Drafts} alt="Drafts" className="profile-icons"/><br/>Drafts
+                    <Link to="/buildsearch/cityselect"><img src={Drafts} alt="Drafts" className="profile-icons"/><br/>City Select</Link>
                 </div>
             </div>
 
                 <Route path ="./buildsearch/build" component={Build}/>
                 <Route path ="./my_itineraries" component={Itinerary}/>
                 <Route path ="./discover" component={Discover}/>
-
             </div>
         )
     }
