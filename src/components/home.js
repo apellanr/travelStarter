@@ -26,7 +26,7 @@ class Home extends Component{
             
             <div className="row icon-container">
                 <div className="col-6 ballicon">
-                    <Link to="/buildsearch/build"><img src={Create} alt="Create" className="profile-icons"/><br/>Create</Link>
+                    <Link to="/buildsearch/cityselect"><img src={Create} alt="Create" className="profile-icons"/><br/>Create</Link>
                 </div>
                 <div className="col-6 ballicon">
                     <Link to="/discover"><img src={SearchIcon} alt="Search" className="profile-icons"/><br/>Discover</Link>
@@ -35,13 +35,14 @@ class Home extends Component{
                     <Link to="/my_itineraries"><img src={Publish} alt="Saved" className="profile-icons"/><br/>My Trips</Link>
                 </div>
                 <div className="col-6 ballicon">
-                    <Link to="/buildsearch/cityselect"><img src={Drafts} alt="Drafts" className="profile-icons"/><br/>City Select</Link>
+                    <img src={Drafts} alt="Drafts" className="profile-icons"/><br/>Drafts
                 </div>
             </div>
 
-                <Route path ="./buildsearch/build" component={Build}/>
+                <Route path ="./buildsearch/cityselect" component={Build}/>
                 <Route path ="./my_itineraries" component={Itinerary}/>
                 <Route path ="./discover" component={Discover}/>
+
             </div>
         )
     }
