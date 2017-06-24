@@ -9,6 +9,7 @@ import Home from './home';
 import BuildSearch from './buildsearch';
 import Itinerary from './my_itineraries';
 import FindItin from './discover';
+import BuildSearchCitySelect from './buildsearchcityselect';
 
 const nav_links = [
     {
@@ -33,9 +34,10 @@ const App = () => (
     <div>
         <Navbar links={nav_links} brand="travelStarter"/>
         <div>
-
             <Route exact path="/" component={Home} />
-            <Route path="/buildsearch" component={BuildSearch} />
+            <Route path="/buildsearch/cityselect" component={BuildSearchCitySelect} />
+            <Route path="/buildsearch/search/:id" component={BuildSearch} />
+            <Route path="/buildsearch/build/:id" component={BuildSearch} />
             <Route path="/my_itineraries" component={Itinerary}/>
             <Route path="/discover" component={FindItin} />
         </div>
