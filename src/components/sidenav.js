@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import Logo from './imgs/travelstarter_logo.png';
 
 const SideNav = (props) => {
@@ -8,10 +9,10 @@ const SideNav = (props) => {
             <hr />
             {/*<img src={WorldImg} className="img-fluid sideNav-img" alt="Responsive image"/>*/}
             <div className="container sideNav-links">
-            <a href="#">Home</a>
-            <a href="#">Destinations</a>
-            <a href="#">Blog</a>
-            <a href="#">About</a>
+            <Link to="/">Home</Link>
+            <Link to="#">Destinations</Link>
+            <Link to="#">Blog</Link>
+            <Link to="#">About</Link>
             </div>
         </div>
     )

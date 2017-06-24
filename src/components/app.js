@@ -33,7 +33,6 @@ const App = () => (
     <div>
         <Navbar links={nav_links} brand="travelStarter"/>
         <div>
-
             <Route exact path="/" component={Home} />
             <Route path="/buildsearch" component={BuildSearch} />
             <Route path="/my_itineraries" component={Itinerary}/>

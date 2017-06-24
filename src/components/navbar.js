@@ -24,11 +24,18 @@ class Navbar extends Component {
         });
     }
 
+    sidenavElementClick() {
+        console.log('link element clicked');
+        this.setState({
+            shiftIn: !this.state.shiftIn
+        });
+    }
+
     render() {  
         let className = this.state.shiftIn ? 'hidden-sideNav visible' : 'hidden-sideNav';
         return (
             <div className="nav-container">
-                <nav className="navbar navbar-toggleable-md navbar-inverse bg-default">
+                <nav className="navbar fixed-top navbar-toggleable-md navbar-inverse bg-default">
                     <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <Icon handleClick={() => this.menuIconClick()}/>
                     </button>
@@ -38,7 +45,7 @@ class Navbar extends Component {
                             {this.linkElements}
                         </ul>
                     </div>
-                    <SideNav className={className}/>
+                    <SideNav className={className} onClick={() => this.sidenavElementClick()}/>
                 </nav>
             </div>
         )
