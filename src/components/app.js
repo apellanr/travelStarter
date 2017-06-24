@@ -20,8 +20,8 @@ const nav_links = [
         path:'/destinations'
     },
     {
-        title: 'Blog',
-        path: '/wanderlosters'
+        title: 'Itinerary',
+        path: '/my_itineraries'
     },
     {
         title: 'About',
