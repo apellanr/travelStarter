@@ -1,54 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from './card';
-import { Field, reduxForm } from 'redux-form';
-import data from '../data';
+import { fetchPlaces } from '../actions';
+import noImg from '../components/imgs/no_image_thumb.gif';
 
-class SearchPage extends Component {
+class SearchPage extends Component {    
+    componentDidMount() {
+        console.log('params', this.props);
+        this.props.fetchPlaces(this.props.match.params.id);
+    }
+
     list() {
-        return data.recommendations.map((place, index) => {
-            return <Card key={index} title={place.name} text={place.snippet} img={place.images[0].source_url} />
+        const city = this.props.match.params.id;
+
+        if(!this.props.poi) {
+            return <h1>Loading...</h1>
+        }
+
+        return this.props.poi.results.map((place, index) => {
+            const image = place.images.length === 0 ? noImg : place.images[0].source_url;
+            return <Card key={index} title={place.name} text={place.snippet} img={image} info={place} />
         });
     }
 
-    renderField(field) {
-        const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
-        return(
-            <div className={className}>
-                <input
-                    className='form-control'
-                    type={field.type}
-                    { ...field.input }
-                />
-                <div className='form-control-feedback'>
-                    { field.meta.touched ? field.meta.error : '' }
-                </div>
-            </div>
-        )
-    }
-
-    onSubmit(val) {
-        console.log(val);
-    }
-
     render() {
-        console.log(data.recommendations);
+        console.log('poi:', this.props.poi);
         const { handleSubmit } = this.props;
         return(
             <div>
                 <h1>Search Page</h1>
-                <form onSubmit={handleSubmit((val) => { this.onSubmit(val) })}>
-                    <div>
-                        <Field 
-                            name='searchPage'
-                            type='text'
-                            component={this.renderField}
-                        />
-                        <span className='input-group-btn'>
-                            <button className='btn btn-secondary' type='submit'>Submit</button>
-                        </span>
-                    </div>
-                </form>
+                <ul className="nav nav-pills nav-justify">
+                    <li className="nav-item">
+                        <button className="nav-link btn btn-primary">Entertainment</button>
+                    </li>
+                    <li className="nav-item">
+                        <button className="nav-link btn btn-warning">Food</button>
+                    </li>
+                    <li className="nav-item">
+                        <button className="nav-link btn btn-danger">Sightseeing</button>
+                    </li>
+                </ul>
                 <div>
                     {this.list()}
                 </div>
@@ -57,19 +48,10 @@ class SearchPage extends Component {
     }
 }
 
-function validate(val) {
-    const errors  ={};
-
-    if(!val.searchPage) {
-        errors.searchPage = 'Please enter a search term.'
+function mapStateToProps(state) {
+    return{
+        poi: state.cityplaces.poi.data
     }
-
-    return errors;
 }
 
-SearchPage = reduxForm({
-    form: 'searchForm',
-    validate
-})(SearchPage);
-
-export default connect(null)(SearchPage);
+export default connect(mapStateToProps, { fetchPlaces })(SearchPage);

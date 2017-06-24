@@ -10,8 +10,8 @@ class BuildSearchCitySelect extends Component {
             <div>
                 <h1>Pick A City</h1>
                 <ul>
-                    <li><Link to="/buildsearch/search/:id">Madrid</Link></li>
-                    <li><Link to="/buildsearch/search/:id">Orange County</Link></li>
+                    <li><Link to="/buildsearch/search/Madrid">Madrid</Link></li>
+                    <li><Link to="/buildsearch/search/Los_Angeles">Los Angeles</Link></li>
                 </ul>
 
                 <Footer />

@@ -12,9 +12,13 @@ class BuildSearch extends Component {
         return(
             <div>
                 <h1>Build/Search Page</h1>
-                <ul>
-                    <li><Link to="/buildsearch/build/:id">Build</Link></li>
-                    <li><Link to="/buildsearch/search/:id">Search</Link></li>
+                <ul className="nav nav-pills nav-fill">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/buildsearch/search/:id">Search</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/buildsearch/build/:id">Build</Link>
+                    </li>
                 </ul>
 
                 <Route path="/buildsearch/build/:id" component={Build}/>

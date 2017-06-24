@@ -1,6 +1,10 @@
 import React from 'react';
 
 const card = (props) => {
+    function handleClick() {
+        console.log(props.info)
+    }
+
     return (
         <div className="container">
             <div className="card" style={{width: 20 + 'rem'}}>
@@ -8,7 +12,8 @@ const card = (props) => {
                 <div className="card-block">
                     <h4 className="card-title">{props.title}</h4>
                     <p className="card-text">{props.text}</p>
-                    <a href="#" className="btn btn-primary">Pls Work</a>
+                    <p className="card-text">{props.tags}</p>
+                    <button className="btn btn-primary" onClick={() => handleClick(props)}>Pls Work</button>
                 </div>
             </div>
         </div>
