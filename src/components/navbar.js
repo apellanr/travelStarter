@@ -9,7 +9,7 @@ class Navbar extends Component {
         super(props);
 
         this.linkElements = this.props.links.map((link, index) => {
-            return <li key={index} className="nav-item"><a href={link.path} className="nav-link">{link.title}</a></li>
+            return <li key={index} className="nav-item"><Link to={link.path} className="nav-link">{link.title}</Link></li>
         });
 
         this.state = {

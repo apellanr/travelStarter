@@ -17,5 +17,11 @@ export function fetchPlaces(city) {
     return{
         type: actions.FETCH_PLACES,
         payload: request
+
+export function selectItinerary(itinerary){
+    return{
+        type: 'ITINERARY_SELECTED',
+        payload: itinerary
+
     }
 }

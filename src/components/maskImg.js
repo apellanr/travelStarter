@@ -6,7 +6,7 @@ let style = {
 
 const MaskImg = () => {
     return (
-        <div className="jumbotron"  style={style}>
+        <div className="jumbotron city-jumbo"  style={style}>
             <div className="jumbo-content">
                 <h1 className="display-4">City Name</h1>
                 <p className="lead">discover your next adventure</p>
