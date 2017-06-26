@@ -10,8 +10,8 @@ const SideNav = (props) => {
             {/*<img src={WorldImg} className="img-fluid sideNav-img" alt="Responsive image"/>*/}
             <div className="container sideNav-links">
             <Link to="/">Home</Link>
-            <Link to="#">Destinations</Link>
-            <Link to="#">Blog</Link>
+            <Link to="/buildsearch/cityselect">Destinations</Link>
+            <Link to="/my_itineraries">My Trips</Link>
             <Link to="#">About</Link>
             </div>
         </div>

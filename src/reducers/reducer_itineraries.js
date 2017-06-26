@@ -24,10 +24,10 @@ const DEFAULT_STATE = {
 export default function(state = DEFAULT_STATE, action) {
     switch(action.type){
         case 'ITINERARY_SELECTED':
-            console.log('Selected Itinerary:', state);
             return {...state, active: action.payload};
+        case 'CLOSE_ITINERARY':
+            return {...state, active: null};
         default:
-            console.log('Default reducer option:', state);
             return state;
     }
 }

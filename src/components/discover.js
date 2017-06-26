@@ -5,11 +5,14 @@ import Footer from './footer';
 
 export default ()=>{
     return(
-        <div className="container">
+        <div className="discover-container">
             <h1>Find Itinerary Page</h1>
             <Mask />
-            <ItineraryList/>
-            <Footer />
+      
+            <div className="container">
+              <ItineraryList/>
+              <Footer />
+            </div>
         </div>
     )
 }
