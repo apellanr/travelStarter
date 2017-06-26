@@ -78,6 +78,24 @@ a {
     margin-bottom: 50px;
 }
 
+
+.city-img {
+    margin-bottom: 10px;
+    height: 35vh;
+}
+
+.la {
+    background: url("./imgs/la.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mad {
+    background: url("./imgs/madrid.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* CARD COMPONENT */
 .card-img-top {
     max-width: 100%;
@@ -106,7 +124,7 @@ a {
 }
 
 .header-text {
-    text-align: center;
+    padding: 13px;
 }
 
 /* sidenav component */
