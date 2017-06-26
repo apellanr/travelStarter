@@ -2,10 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {selectItinerary} from '../actions/index';
 import {bindActionCreators} from 'redux';
+import ItineraryDetails from './itinerary_detail';
 
 class ItineraryList extends Component {
     renderList(){
         return this.props.itineraries.map((itinerary)=>{
+            if(this.props.active && itinerary.name === this.props.active.name ){
+                return (
+                    <ItineraryDetails key={itinerary.name} itinerary={itinerary}/>
+                )
+            }
             return(
                 <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name} >
                     <img className="card-img-top" src={itinerary.image} alt="Card image cap"/>
@@ -22,6 +28,7 @@ class ItineraryList extends Component {
 
 
     render(){
+        console.log('Active:', this.props.active);
         return(
             <div className="container">
                 {this.renderList()}
@@ -34,7 +41,8 @@ class ItineraryList extends Component {
 function mapStateToProps(state){
     //whatever is returned will show up as props inside BookList
     return{
-        itineraries: state.itineraries
+        itineraries: state.itineraries.list,
+        active: state.itineraries.active
     };
 }
 
