@@ -1,30 +1,53 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Icon from './icon';
+import SideNav from './sidenav';
+
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
 
         this.linkElements = this.props.links.map((link, index) => {
-            return <li key={index} className="nav-item"><a href={link.path} className="nav-link">{link.title}</a></li>
+            return <li key={index} className="nav-item"><Link to={link.path} className="nav-link">{link.title}</Link></li>
+        });
+
+        this.state = {
+            shiftIn : false
+        }
+    }
+
+    menuIconClick() {
+        console.log('burger clicked');
+        this.setState({
+            shiftIn: !this.state.shiftIn
         });
     }
 
-    render() {
-        console.log('navbar component', this.props);
-        
+    sidenavElementClick() {
+        console.log('link element clicked');
+        this.setState({
+            shiftIn: !this.state.shiftIn
+        });
+    }
+
+    render() {  
+        let className = this.state.shiftIn ? 'hidden-sideNav visible' : 'hidden-sideNav';
         return (
-            <nav className="navbar navbar-toggleable-md navbar-inverse bg-primary">
-                <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <Link to="/" className="navbar-brand">{this.props.brand}</Link>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        {this.linkElements}
-                    </ul>
-                </div>
-            </nav>
+            <div className="nav-container">
+                <nav className="navbar fixed-top navbar-toggleable-md navbar-inverse bg-default">
+                    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <Icon handleClick={() => this.menuIconClick()}/>
+                    </button>
+                    <Link to="/" className="navbar-brand">{this.props.brand}</Link>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            {this.linkElements}
+                        </ul>
+                    </div>
+                    <SideNav className={className} onClick={() => this.sidenavElementClick()}/>
+                </nav>
+            </div>
         )
     }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
     Link,
     Route
 } from 'react-router-dom';
@@ -10,6 +9,7 @@ import Home from './home';
 import BuildSearch from './buildsearch';
 import Itinerary from './my_itineraries';
 import FindItin from './discover';
+import BuildSearchCitySelect from './buildsearchcityselect';
 
 const nav_links = [
     {
@@ -21,8 +21,8 @@ const nav_links = [
         path:'/destinations'
     },
     {
-        title: 'Blog',
-        path: '/wanderlosters'
+        title: 'Itinerary',
+        path: '/my_itineraries'
     },
     {
         title: 'About',
@@ -31,23 +31,17 @@ const nav_links = [
 ];
 
 const App = () => (
-    <Router>
+    <div>
+        <Navbar links={nav_links} brand="travelStarter"/>
         <div>
-            <Navbar links={nav_links} brand="travelStarter"/>
-            <div className="container">
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/buildsearch">Build/Search Page</Link></li>
-                    <li><Link to="/discover">Find Itinerary</Link></li>
-                </ul>
-
-                <Route exact path="/" component={Home} />
-                <Route path="/buildsearch" component={BuildSearch} />
-                <Route path="/my_itineraries" component={Itinerary}/>
-                <Route path="/discover" component={FindItin} />
-            </div>
+            <Route exact path="/" component={Home} />
+            <Route path="/buildsearch/cityselect" component={BuildSearchCitySelect} />
+            <Route path="/buildsearch/search/:id" component={BuildSearch} />
+            <Route path="/buildsearch/build/:id" component={BuildSearch} />
+            <Route path="/my_itineraries" component={Itinerary}/>
+            <Route path="/discover" component={FindItin} />
         </div>
-    </Router>
+    </div>
 );
 
 export default App;

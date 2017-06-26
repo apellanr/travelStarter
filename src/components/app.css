@@ -1,29 +1,29 @@
-.app {
-    background-color: #000;
-    color: #fff;
-    padding: 50px;
-    text-align: center;
+#root {
+    margin-top: 53px;
+    margin-bottom: 70px;
 }
 
-.app img {
-    height: 100px;
+* {
+    font-family: 'Playfair Display', serif;
 }
 
-.rotate {
-    animation: spin 10s linear infinite;
+/* NAVBAR COMPONENT */
+.navbar, .footer {
+   background-color: #26628A;
 }
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.navbar-toggler {
+    border: none;
+    cursor: pointer;
 }
 
+.menu-icon {
+    font-size: 30px;
+}
+
+/* ICON COMPONENT */
 .icon-text:hover {
-    color: #FDB927;;
+    color: #FDB927;
     text-decoration:none;
     cursor:pointer;
 }
@@ -32,10 +32,138 @@
     color: white;
     text-decoration: none;
     font-size: 14px;
-    font-family: rubik, 'Helvetica', serif;
 }
 
+.profile-icons {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor:pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.ballicon {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* PROFILE HERO IMG // CONTENT */
+.profile-hero {
+    height: 40vh;
+    border-radius: 0;
+    background: url("./imgs/map.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profile-lead {
+    font-size: 40px;
+}
+
+/* CARD COMPONENT */
 .card-img-top {
     max-width: 100%;
     height: auto;
+}
+
+.city-jumbo {
+    margin-top: 0;
+    height: 100vh;
+    border-radius: 0;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.jumbo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:100%;
+    color: white;
+}
+
+/* sidenav component */
+.hidden-sideNav {
+    height: 100%;
+    width: 290px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: transform 450ms;
+    transform: translate(-300px, 0px);
+    box-sizing: border-box;
+    /*box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23);*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 0px;
+    overflow-x: hidden;
+    padding-top: 60px;
+    background-color: #f3f3f3;
+}
+
+.visible {
+    transform: translate(0px, 0px);
+}
+
+.sideNav-links {
+    margin-top: 5px;
+}
+
+.hidden-sideNav a {
+    padding: 6px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.hidden-sideNav a:hover{
+    color: rgb(25, 106, 229);
+}
+
+.hidden-sideNav a:active {
+    color: rgb(25, 106, 229);
+}
+
+hr {
+    margin-top: -7px;
+}
+
+.sideNav-img {
+    position: absolute;
+    top: 11px;
+    left: 30px;
+    width: 226px;
+    height: 36px;
+}
+
+@media (min-width: 895px) { 
+    .profile-hero {
+        background: url("./imgs/road.jpg");
+        height: 40vh;
+        border-radius: 0;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .profile-lead {
+        font-size: 45px;
+    }
 }
