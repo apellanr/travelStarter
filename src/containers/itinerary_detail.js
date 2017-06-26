@@ -1,11 +1,9 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
+import { itineraryClose } from '../actions/index';
 
 class ItineraryDetail extends Component {
     render() {
-        // if(!this.props.itinerary){
-        //     return <div>select a place to get started</div>
-        // }
 
         return(
             <div className="card" style={{width: 20 + 'rem'}}>
@@ -21,7 +19,7 @@ class ItineraryDetail extends Component {
                 </ul>
                 <div className="card-block">
                     <a href="#" className="card-link">Card link</a>
-                    <a href="#" className="card-link">Another link</a>
+                    <a onClick = {()=> this.props.itineraryClose()} type="button" className="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                 </div>
             </div>
         );
@@ -34,4 +32,4 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(null)(ItineraryDetail);
+export default connect(null, {itineraryClose})(ItineraryDetail);

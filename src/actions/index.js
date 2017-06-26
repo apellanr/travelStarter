@@ -27,10 +27,17 @@ export function clearPlaces() {
     }
 }
 
-export function selectItinerary(itinerary){
+export function selectItinerary(itinerary) {
     console.log('itinerary in action creator:', itinerary);
-    return{
+    return {
         type: 'ITINERARY_SELECTED',
         payload: itinerary
+    }
+}
+
+export function itineraryClose(){
+    return{
+        type: 'CLOSE_ITINERARY',
+        payload: {}
     }
 }
