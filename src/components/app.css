@@ -1,10 +1,10 @@
 #root {
     margin-top: 53px;
-    margin-bottom: 70px;
+    height: 92vh;
 }
 
 * {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* NAVBAR COMPONENT */
@@ -47,6 +47,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    padding: 10px;
 }
 
 .ballicon {
@@ -69,6 +70,30 @@ a {
 
 .profile-lead {
     font-size: 40px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* COMP CONTAINERS */
+.discover-container {
+    margin-bottom: 50px;
+}
+
+
+.city-img {
+    margin-bottom: 10px;
+    height: 35vh;
+}
+
+.la {
+    background: url("./imgs/la.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mad {
+    background: url("./imgs/madrid.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* CARD COMPONENT */
@@ -90,11 +115,16 @@ a {
 
 .jumbo-content {
     display: flex;
+    font-family: 'Playfair Display', serif;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height:100%;
     color: white;
+}
+
+.header-text {
+    padding: 13px;
 }
 
 /* sidenav component */
@@ -163,7 +193,10 @@ hr {
         background-position: center center;
         background-repeat: no-repeat;
     }
+    #root {
+        height: 95vh;
+    }
     .profile-lead {
-        font-size: 45px;
+        font-size: 50px;
     }
 }
