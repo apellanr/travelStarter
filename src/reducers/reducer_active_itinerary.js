@@ -1,8 +1,7 @@
-export default function(state=null, action) {
+export default function(state= { active: null }, action) {
     switch(action.type){
         case 'ITINERARY_SELECTED':
-            return action.payload;
-
+            return {...state, active: action.payload};
     }
 
     return state;

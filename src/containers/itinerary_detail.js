@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 class ItineraryDetail extends Component {
     render() {
-        if(!this.props.itinerary){
-            return <div>select a place to get started</div>
-        }
+        // if(!this.props.itinerary){
+        //     return <div>select a place to get started</div>
+        // }
 
         return(
             <div className="card" style={{width: 20 + 'rem'}}>
@@ -34,4 +34,4 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(mapStateToProps)(ItineraryDetail);
+export default connect(null)(ItineraryDetail);
