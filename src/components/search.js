@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import Card from './card';
 import { fetchPlaces } from '../actions';
 import noImg from '../components/imgs/no_image_thumb.gif';
 
 class SearchPage extends Component {    
-    componentDidMount() {
-        console.log('params', this.props);
-        this.props.fetchPlaces(this.props.match.params.id);
+    // componentDidMount() {
+    //     console.log('params', this.props);
+    //     this.props.fetchPlaces(this.props.match.params.id);
+    // }
+
+    replaceUnderscore(city) {
+        return _.replace(city, '_', ' ');
+    }
+
+    handleClick(query) {
+        this.props.fetchPlaces(this.props.match.params.id, query)
     }
 
     list() {
         const city = this.props.match.params.id;
 
         if(!this.props.poi) {
-            return <h1>Loading...</h1>
+            return <h1>Click a category to get started!</h1>
         }
 
         return this.props.poi.results.map((place, index) => {
@@ -28,16 +37,16 @@ class SearchPage extends Component {
         const { handleSubmit } = this.props;
         return(
             <div>
-                <h1>Search Page</h1>
+                <h1>Discover {this.replaceUnderscore(this.props.match.params.id)}!</h1>
                 <ul className="nav nav-pills nav-justify">
                     <li className="nav-item">
-                        <button className="nav-link btn btn-primary">Entertainment</button>
+                        <button className="nav-link btn btn-primary" onClick={() => this.handleClick('cuisine-Beer')}>Entertainment</button>
                     </li>
                     <li className="nav-item">
-                        <button className="nav-link btn btn-warning">Food</button>
+                        <button className="nav-link btn btn-warning" onClick={() => this.handleClick('eatingout')}>Food</button>
                     </li>
                     <li className="nav-item">
-                        <button className="nav-link btn btn-danger">Sightseeing</button>
+                        <button className="nav-link btn btn-danger" onClick={() => this.handleClick('sightseeing')}>Sightseeing</button>
                     </li>
                 </ul>
                 <div>
