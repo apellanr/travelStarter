@@ -12,6 +12,7 @@ export default ()=>{
             <div className="container">
               <ItineraryList/>
               <Footer />
+            </div>
         </div>
     )
 }
