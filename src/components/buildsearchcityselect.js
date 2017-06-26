@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
     Link,
 } from 'react-router-dom';
+import { clearPlaces } from '../actions';
 import Footer from './footer';
 
 class BuildSearchCitySelect extends Component {
+    componentDidMount() {
+        this.props.clearPlaces();
+    }
+
     render() {
         return(
             <div>
@@ -20,4 +26,4 @@ class BuildSearchCitySelect extends Component {
     }
 }
 
-export default BuildSearchCitySelect;
+export default connect(null, { clearPlaces })(BuildSearchCitySelect);
