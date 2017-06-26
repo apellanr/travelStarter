@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { 
+    Link,
+    Route
+ } from 'react-router-dom';
 import _ from 'lodash';
-import Card from './card';
-import { fetchPlaces } from '../actions';
-import noImg from '../components/imgs/no_image_thumb.gif';
+import { fetchPlaces, currentPage } from '../actions';
+import SearchList from './searchlist';
 
 class SearchPage extends Component {    
     // componentDidMount() {
@@ -11,46 +14,39 @@ class SearchPage extends Component {
     //     this.props.fetchPlaces(this.props.match.params.id);
     // }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+        window.scrollTo(0, 0)
+        }
+    }
+
     replaceUnderscore(city) {
         return _.replace(city, '_', ' ');
     }
 
     handleClick(query) {
-        this.props.fetchPlaces(this.props.match.params.id, query)
-    }
-
-    list() {
-        const city = this.props.match.params.id;
-
-        if(!this.props.poi) {
-            return <h1>Click a category to get started!</h1>
-        }
-
-        return this.props.poi.results.map((place, index) => {
-            const image = place.images.length === 0 ? noImg : place.images[0].source_url;
-            return <Card key={index} title={place.name} text={place.snippet} img={image} info={place} />
-        });
+        this.props.fetchPlaces(this.props.match.params.id, query);
+        this.props.currentPage(1);
     }
 
     render() {
-        console.log('poi:', this.props.poi);
         const { handleSubmit } = this.props;
         return(
             <div>
                 <h1>Discover {this.replaceUnderscore(this.props.match.params.id)}!</h1>
                 <ul className="nav nav-pills nav-justify">
                     <li className="nav-item">
-                        <button className="nav-link btn btn-primary" onClick={() => this.handleClick('cuisine-Beer')}>Entertainment</button>
+                        <Link to={`/buildsearch/search/${this.props.match.params.id}/entertainment/1`} className="nav-link btn btn-primary" onClick={() => this.handleClick('cuisine-Beer')}>Entertainment</Link>
                     </li>
                     <li className="nav-item">
-                        <button className="nav-link btn btn-warning" onClick={() => this.handleClick('eatingout')}>Food</button>
+                        <Link to={`/buildsearch/search/${this.props.match.params.id}/food/1`} className="nav-link btn btn-warning" onClick={() => this.handleClick('eatingout')}>Food</Link>
                     </li>
                     <li className="nav-item">
-                        <button className="nav-link btn btn-danger" onClick={() => this.handleClick('sightseeing')}>Sightseeing</button>
+                        <Link to={`/buildsearch/search/${this.props.match.params.id}/sightseeing/1`} className="nav-link btn btn-danger" onClick={() => this.handleClick('sightseeing')}>Sightseeing</Link>
                     </li>
                 </ul>
                 <div>
-                    {this.list()}
+                    <Route path={`/buildsearch/search/${this.props.match.params.id}/:searchQuery/:page`} component={SearchList} />
                 </div>
             </div>
         )
@@ -59,8 +55,9 @@ class SearchPage extends Component {
 
 function mapStateToProps(state) {
     return{
-        poi: state.cityplaces.poi.data
+        poi: state.cityplaces.poi.data,
+        currentSearchPage: state.currentPage.page
     }
 }
 
-export default connect(mapStateToProps, { fetchPlaces })(SearchPage);
+export default connect(mapStateToProps, { fetchPlaces, currentPage })(SearchPage);

@@ -13,7 +13,7 @@ const card = (props) => {
                     <h4 className="card-title">{props.title}</h4>
                     <p className="card-text">{props.text}</p>
                     <p className="card-text">{props.tags}</p>
-                    <button className="btn btn-primary" onClick={() => handleClick(props)}>Pls Work</button>
+                    <button className="btn btn-primary" onClick={() => handleClick(props)}>Add to Itinerary</button>
                 </div>
             </div>
         </div>

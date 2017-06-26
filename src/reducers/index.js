@@ -6,7 +6,9 @@ import ItinerariesReducer from './reducer_itineraries';
 
 const rootReducer = combineReducers({
     form: formReducer,
-    itineraries: ItinerariesReducer
+    itineraries: ItinerariesReducer,
+    cityplaces: searchReducer,
+    currentPage: searchReducer
 });
 
 export default rootReducer;
