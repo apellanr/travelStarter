@@ -26,7 +26,7 @@ class Home extends Component{
             
             <div className="row icon-container">
                 <div className="col-6 ballicon">
-                    <Link to="/buildsearch/cityselect"><img src={Create} alt="Create" className="profile-icons"/><br/>Create</Link>
+                    <Link to="/buildsearch/cityselect"><img src={Create} alt="Create" className="profile-icons"/><br/>New Itinerary</Link>
                 </div>
                 <div className="col-6 ballicon">
                     <Link to="/discover"><img src={SearchIcon} alt="Search" className="profile-icons"/><br/>Discover</Link>

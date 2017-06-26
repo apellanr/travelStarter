@@ -8,7 +8,7 @@ class BuildSearchCitySelect extends Component {
     render() {
         return(
             <div>
-                <h1>Pick A City</h1>
+                <h2 className="header-text">Select City</h2>
                 <ul>
                     <li><Link to="/buildsearch/search/:id">Madrid</Link></li>
                     <li><Link to="/buildsearch/search/:id">Orange County</Link></li>
