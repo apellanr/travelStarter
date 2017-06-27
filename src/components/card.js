@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addPlace } from '../actions';
 
-const card = (props) => {
-    function handleClick() {
-        console.log(props.info)
+// const card = (props) => {
+class Card extends Component {
+    handleClick() {
+        console.log(this.props.info)
+        this.props.addPlace(this.props.info);
     }
-
+    render() {
     return (
         <div className="container">
             <div className="card" style={{width: 20 + 'rem'}}>
-                <img className="card-img-top" src={props.img} alt="Card image cap"/>
+                <img className="card-img-top" src={this.props.img} alt="Card image cap"/>
                 <div className="card-block">
-                    <h4 className="card-title">{props.title}</h4>
-                    <p className="card-text">{props.text}</p>
-                    <p className="card-text">{props.tags}</p>
-                    <button className="btn btn-primary" onClick={() => handleClick(props)}>Add to Itinerary</button>
+                    <h4 className="card-title">{this.props.title}</h4>
+                    <p className="card-text">{this.props.text}</p>
+                    <p className="card-text">{this.props.tags}</p>
+                    <button className="btn btn-primary" onClick={() => this.handleClick()}>Add to Itinerary</button>
                 </div>
             </div>
         </div>
     )
+    }
 }
 
-export default card;
+export default connect(null, { addPlace })(Card);

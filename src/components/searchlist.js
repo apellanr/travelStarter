@@ -13,7 +13,7 @@ class SearchList extends Component {
         let query = null;
         switch(addressArray[4]) {
             case 'entertainment':
-                query = 'cuisine-Beer';
+                query = 'nightlife';
                 break;
             case 'food':
                 query = 'eatingout';
@@ -56,7 +56,12 @@ class SearchList extends Component {
 
     list() {
         if(!this.props.poi) {
-            return <h1>Click a category to get started!</h1>
+            return (
+                <div className="spinner">
+                    <div className="double-bounce1"></div>
+                    <div className="double-bounce2"></div>
+                </div>
+            )
         }
 
         const currentStart = (this.props.currentSearchPage-1)*5;
