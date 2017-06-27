@@ -2,7 +2,7 @@ import axios from 'axios';
 import actions from './types';
 
 const BASE_URL = 'https://www.triposo.com/api/v2/poi.json?location_id=';
-const END_URL = '&count=100&fields=all&tag_labels=';
+const END_URL = '&count=50&fields=all&tag_labels=';
 const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
 

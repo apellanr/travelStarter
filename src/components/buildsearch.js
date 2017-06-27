@@ -12,7 +12,7 @@ class BuildSearch extends Component {
         const city = this.props.match.params.id;
         console.log('params', this.props);
         return(
-            <div>
+            <div className='buildsearchpage'>
                 <h1>Build/Search Page</h1>
                 <ul className="nav nav-pills nav-fill">
                     <li className="nav-item">
