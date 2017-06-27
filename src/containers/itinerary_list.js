@@ -13,7 +13,7 @@ class ItineraryList extends Component {
                 )
             }
             return(
-                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name} >
+                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name}>
                     <img className="card-img-top" src={itinerary.image} alt="Card image cap"/>
                     <div className="card-block">
                         <h4 className="card-title">{itinerary.place}</h4>
@@ -21,7 +21,6 @@ class ItineraryList extends Component {
                         <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">select itinerary</a>
                     </div>
                 </div>
-
             );
         });
     }
@@ -30,8 +29,11 @@ class ItineraryList extends Component {
     render(){
         console.log('Active:', this.props.active);
         return(
-            <div className="container">
-                {this.renderList()}
+            <div className="itinerary-container">
+                <div className="card-grid">
+                    {this.renderList()}
+                </div>
+                
             </div>
         )
     }

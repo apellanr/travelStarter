@@ -16,6 +16,18 @@ const DEFAULT_STATE = {
             locations:['restaurant3', 'museum3','park3'],
             image: "https://afrodita-production.s3.amazonaws.com/images/thyssen-museo-madrid-290716.original.jpg"
 
+        },
+        {  place: "Europe",
+            name: "Blah Blah",
+            locations:['restaurant4', 'museum4','park4'],
+            image: "https://afrodita-production.s3.amazonaws.com/images/thyssen-museo-madrid-290716.original.jpg"
+
+        },
+        {  place: "Europe",
+            name: "Anna's What If's",
+            locations:['restaurant5', 'museum5','park5'],
+            image: "https://afrodita-production.s3.amazonaws.com/images/thyssen-museo-madrid-290716.original.jpg"
+
         }
     ],
     active: null
