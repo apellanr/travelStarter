@@ -17,15 +17,8 @@ class Navbar extends Component {
         }
     }
 
-    menuIconClick() {
+    toggleNav() {
         console.log('burger clicked');
-        this.setState({
-            shiftIn: !this.state.shiftIn
-        });
-    }
-
-    sidenavElementClick() {
-        console.log('link element clicked');
         this.setState({
             shiftIn: !this.state.shiftIn
         });
@@ -37,7 +30,7 @@ class Navbar extends Component {
             <div className="nav-container">
                 <nav className="navbar fixed-top navbar-toggleable-md navbar-inverse bg-default">
                     <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <Icon handleClick={() => this.menuIconClick()}/>
+                        <Icon handleClick={() => this.toggleNav()}/>
                     </button>
                     <Link to="/" className="navbar-brand">{this.props.brand}</Link>
                     <div className="collapse navbar-collapse" id="navbarNav">
@@ -45,7 +38,7 @@ class Navbar extends Component {
                             {this.linkElements}
                         </ul>
                     </div>
-                    <SideNav className={className} onClick={() => this.sidenavElementClick()}/>
+                    <SideNav className={className} closeNav={() => this.toggleNav()}/>
                 </nav>
             </div>
         )
