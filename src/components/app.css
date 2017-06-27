@@ -3,6 +3,10 @@
     height: 92vh;
 }
 
+.buildsearchpage {
+    margin-bottom: 53px;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
 }

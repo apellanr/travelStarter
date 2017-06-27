@@ -10,6 +10,7 @@ import BuildSearch from './buildsearch';
 import Itinerary from './my_itineraries';
 import FindItin from './discover';
 import BuildSearchCitySelect from './buildsearchcityselect';
+import LoginPage from './login_page';
 
 const nav_links = [
     {
@@ -35,6 +36,7 @@ const App = () => (
         <Navbar links={nav_links} brand="travelStarter"/>
         <div>
             <Route exact path="/" component={Home} />
+            <Route path='/login' component={LoginPage} />
             <Route path="/buildsearch/cityselect" component={BuildSearchCitySelect} />
             <Route path="/buildsearch/search/:id" component={BuildSearch} />
             <Route path="/buildsearch/build/:id" component={BuildSearch} />

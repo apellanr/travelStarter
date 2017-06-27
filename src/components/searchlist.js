@@ -38,7 +38,7 @@ class SearchList extends Component {
             return <p></p>;
         }
 
-        let numOfPages = this.props.poi.results.length/5;
+        let numOfPages = Math.ceil(this.props.poi.results.length/5);
         let pages = [];
 
         for(let i = 1; i <= numOfPages; i++) {
@@ -71,18 +71,25 @@ class SearchList extends Component {
 
     render() {
         const addressArray = this.props.match.url.split('/');
+        let lastPage = null;
+        if(!this.props.poi) {
+            lastPage = null;
+        } else {
+            lastPage = Math.ceil(this.props.poi.results.length/5);
+        }
+
         return(
             <div>
                 { this.list() }
                 <nav className='mx-auto'>
                     <ul className='pagination pagination-md justify-content-center'>
-                        <li className='page-item'>
+                        <li className={`page-item ${this.props.currentSearchPage === 1 ? 'disabled' : ''}`}>
                             <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage)-1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage)-1)}>&laquo;</Link>
                         </li>
 
                         { this.pagination() }
 
-                        <li className='page-item'>
+                        <li className={`page-item ${this.props.currentSearchPage === lastPage ? 'disabled' : ''}`}>
                             <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage)+1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage)+1)}>&raquo;</Link>
                         </li>
                     </ul>
