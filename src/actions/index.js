@@ -48,3 +48,15 @@ export function itineraryClose(){
         payload: {}
     }
 }
+
+export function addPlace(val) {
+    const instance = axios.create({
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    });
+
+    return{
+        type: actions.ADD_PLACE,
+        payload: instance
+    }
+
+}

@@ -25,6 +25,7 @@ class SearchPage extends Component {
     }
 
     handleClick(query) {
+        this.props.poi = null;
         this.props.fetchPlaces(this.props.match.params.id, query);
         this.props.currentPage(1);
     }
