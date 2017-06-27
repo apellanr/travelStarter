@@ -9,7 +9,7 @@ export default ()=>{
             <h1>Find Itinerary Page</h1>
             <Mask />
       
-            <div className="container">
+            <div>
               <ItineraryList/>
               <Footer />
             </div>
