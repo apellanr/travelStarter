@@ -2,7 +2,7 @@ import actions from '../actions/types';
 
 const DEFAULT_STATE = {
     poi: {},
-    page: 0
+    page: []
 }
 
 export default function(state = DEFAULT_STATE, action) {

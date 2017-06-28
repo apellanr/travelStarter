@@ -9,7 +9,7 @@ import noImg from '../components/imgs/no_image_thumb.gif';
 class SearchList extends Component {
     componentDidMount() {
         const addressArray = this.props.match.url.split('/');
-        this.props.currentPage(addressArray[5]);
+        this.props.currentPage([this.props.match.params.searchQuery, addressArray[5]]);
         let query = null;
         switch(addressArray[4]) {
             case 'entertainment':
@@ -48,7 +48,8 @@ class SearchList extends Component {
         return pages.map((page) => {
             return(
                 <li className='page-item' key={page}>
-                    <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${page}`} key={page} onClick={() => this.handlePageClick(page)}>{page}</Link>
+                    {/*<Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${page}`} key={page} onClick={() => this.handlePageClick(page)}>{page}</Link>*/}
+                    <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${page}`} key={page} onClick={() => this.handlePageClick([this.props.match.params.searchQuery, page])}>{page}</Link>
                 </li>
             )
         })
@@ -64,8 +65,8 @@ class SearchList extends Component {
             )
         }
 
-        const currentStart = (this.props.currentSearchPage-1)*5;
-        const currentEnd = this.props.currentSearchPage*5;
+        const currentStart = (this.props.currentSearchPage[1]-1)*5;
+        const currentEnd = this.props.currentSearchPage[1]*5;
         const tempArray = this.props.poi.results.slice(currentStart, currentEnd);
 
         return tempArray.map((place, index) => {
@@ -75,6 +76,7 @@ class SearchList extends Component {
     }
 
     render() {
+        console.log(this.props.currentSearchPage);
         const addressArray = this.props.match.url.split('/');
         let lastPage = null;
         if(!this.props.poi) {
@@ -88,14 +90,14 @@ class SearchList extends Component {
                 { this.list() }
                 <nav className='mx-auto'>
                     <ul className='pagination pagination-md justify-content-center'>
-                        <li className={`page-item ${this.props.currentSearchPage === 1 ? 'disabled' : ''}`}>
-                            <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage)-1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage)-1)}>&laquo;</Link>
+                        <li className={`page-item ${this.props.currentSearchPage[1] === 1 ? 'disabled' : ''}`}>
+                            <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage[1])-1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage[1])-1)}>&laquo;</Link>
                         </li>
 
                         { this.pagination() }
 
-                        <li className={`page-item ${this.props.currentSearchPage === lastPage ? 'disabled' : ''}`}>
-                            <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage)+1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage)+1)}>&raquo;</Link>
+                        <li className={`page-item ${this.props.currentSearchPage[1] === lastPage ? 'disabled' : ''}`}>
+                            <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage[1])+1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage[1])+1)}>&raquo;</Link>
                         </li>
                     </ul>
                 </nav>
