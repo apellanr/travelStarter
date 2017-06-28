@@ -10,6 +10,7 @@ import Footer from './footer';
 
 class BuildSearch extends Component {
     searchLink() {
+        const addressArray = this.props.match.url.split('/');
         if(addressArray[2] === 'build') {
             return(
                 <Link className="nav-link" to={`/buildsearch/search/${this.props.match.params.id}/${this.props.currentSearchPage[0]}/${this.props.currentSearchPage[1]}`}>Search</Link>
