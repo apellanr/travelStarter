@@ -15,6 +15,7 @@ require('mysqlconnect.php');
 
 //define a constant called "INTERNAL", set it to true
 //const INTERNAL = true;
+//INTERNAL prevents direct access to read and create files from front end. Must access via switch statement in here.
 define('INTERNAL',true);
 
 //make an output variable.  assume everything failed with the success property
