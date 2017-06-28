@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import FB from './facebook';
 
 class LoginForm extends Component {
     submitForm(val) {
@@ -46,7 +47,7 @@ class LoginForm extends Component {
                     <button className='btn btn-primary' type='submit'>Login</button>
                 </form>
                 <br/>
-                <button className='btn btn-primary'>FACEBOOK BUTTON WILL GO HERE</button>
+                <FB />
             </div>
         )
     }
