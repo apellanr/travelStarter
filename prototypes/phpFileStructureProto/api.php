@@ -1,4 +1,8 @@
 <?php
+
+//for testing purposes until site goes live
+header('Access-Control-Allow-Origin: *');
+
 /**
  * Created by PhpStorm.
  * User: davidsung
@@ -33,6 +37,9 @@ if(empty( $_GET['action'])) {
 // if readItem, etc etc etc
         case 'readItem':
             include 'includes/readItems.php';
+            break;
+        case 'createItem':
+            include 'includes/createItems.php';
             break;
     }
 }
