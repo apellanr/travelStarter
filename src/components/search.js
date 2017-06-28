@@ -7,6 +7,7 @@ import {
 import _ from 'lodash';
 import { fetchPlaces, currentPage } from '../actions';
 import SearchList from './searchlist';
+import { citySelect } from './city_fxns';
 
 class SearchPage extends Component {    
     // componentDidMount() {
@@ -33,8 +34,13 @@ class SearchPage extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <div>
-                <h3>Trip to {this.replaceUnderscore(this.props.match.params.id)}!</h3>
+            <div className="container">
+                <div className="card mb-3">
+                    <img className={`card-img-top ${this.props.match.params.id}`}/>
+                    <div className="card-block trip-block">
+                        <h5 className="text-center">Trip to {this.replaceUnderscore(this.props.match.params.id)}</h5>
+                    </div>
+                </div>
                 <ul className="nav nav-pills nav-justify filter-container">
                     <li className="nav-item">
                         <Link to={`/buildsearch/search/${this.props.match.params.id}/entertainment/1`} className="nav-link btn btn-primary" onClick={() => this.handleClick('nightlife')}><i className="material-icons filter-btns">local_bar</i>Drinks</Link>

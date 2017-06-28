@@ -116,13 +116,13 @@ a {
     height: 35vh;
 }
 
-.la {
+.la, .Los_Angeles {
     background: url("./imgs/la.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.mad {
+.mad, .Madrid {
     background: url("./imgs/madrid.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -137,6 +137,11 @@ a {
 .card-grid {
     display: flex;
     justify-content: space-around;
+}
+
+.trip-block {
+    padding: 10px;
+    border-radius: 0;
 }
 
 .city-jumbo {
