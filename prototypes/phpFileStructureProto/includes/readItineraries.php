@@ -1,4 +1,11 @@
 <?php
+function debug($message){
+    if(!empty($_GET['debug'])) {
+        print($message);
+    }
+}
+
+//INTERNAL prevents direct access to this file from front-end query. Must access via switch statement in api.php
 //check if INTERNAL is true.  If it isn't, or it isn't set, exit the code (die())
 if(INTERNAL !== true){
     die('Error: cannot directly access.');

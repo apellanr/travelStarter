@@ -1,18 +1,26 @@
 <?php
+
+function debug($message){
+    if(!empty($_GET['debug'])) {
+        print($message);
+    }
+}
+
+//INTERNAL prevents direct access to this file from front-end query. Must access via switch statement in api.php
 //check if INTERNAL is true.  If it isn't, or it isn't set, exit the code (die())
 if(INTERNAL !== true) {
     die('Error: cannot directly access.');
 }
 
-    //$entityBody = file_get_contents('php://input');
-    $entityBody = file_get_contents('includes/dummy.json');
+    $entityBody = file_get_contents('php://input');
+    //$entityBody = file_get_contents('includes/dummy.json');
     $dataMaster= json_decode($entityBody,true);
     $user_id = $dataMaster['userId'];
-    if(!empty($dataMaster['itinId'])){
-        $itin_id = $dataMaster['itinId'];
-    } else {
-        //generate a new itinerary id
-    }
+//    if(!empty($dataMaster['itinId'])){
+//        $itin_id = $dataMaster['itinId'];
+//    } else {
+//        //generate a new itinerary id
+//    }
     //generate hash of data in json format
     $data = $dataMaster['data'];
 
@@ -62,34 +70,33 @@ $name = $itemStore['name'];
 $place_id = $itemStore['place_id'];
 $longitude = $itemStore['longitude'];
 $latitude = $itemStore['latitude'];
-$images = ''.json_encode($itemStore['images']);
-$snippet = ''.json_encode($itemStore['snippets']);
+$images = json_encode($itemStore['images']);
+$snippet = json_encode($itemStore['snippets']);
+$date_queried = date('Y-m-d H:i:s');
+
 //$hashtags = [];
 //$tag_label = ;
-
-$query = "INSERT INTO `activities` SET `name` = $name, `place_id` = $place_id, `city_id` = $city_id, `longitude` = $longitude, `latitude` = $latitude, `images` = '$images', `snippet` = $snippet";
+$query = "INSERT INTO `activities` SET `name` = '$name', `date_queried` = '$date_queried', `place_id` = '$place_id', `city_id` = '$city_id', `longitude` = '$longitude', `latitude` = '$latitude', `images` = '$images', `snippet` = '$snippet'";
 
 //make a query to read all activities
 $result = mysqli_query($conn, $query);
-print($query);
+debug($query);
 
 //check if $result is empty
 if(empty($result)) {
     //if yes, report the error in the output
-    $output['errors'][] = 'result variable is empty';
+    $output['errors'][] = 'error forming query';
+    error_log(date('Y-m-d H:i:s'). ' travel starter mysql error on insert: '.mysqli_error($conn));
     //if no,     check if any results were passed in
 }else {
     if(mysqli_affected_rows($conn) !== 0){
         //if yes,
         $output['success']= true;
         //set the success to true
-        //do a while loop to fetch all the information, put it into an array
-        while($row = mysqli_fetch_assoc($result)){
-            $output['data'][] = $row;
-        }
         //if no, report the error in the output
     }else{
         $output['errors'][]= 'No data.';
     }
 }
+
 ?>
