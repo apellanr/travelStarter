@@ -3,10 +3,6 @@
     height: 92vh;
 }
 
-.buildsearchpage {
-    margin-bottom: 53px;
-}
-
 * {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
@@ -62,6 +58,37 @@
 a {
     text-decoration: none;
     color: #333;
+}
+
+.filter-btns {
+    font-size: 17px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+/* BUILD PAGE */
+.buildsearchpage {
+    margin-bottom: 53px;
+}
+
+.build-tabs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tab-links {
+    width: 187px;
+    text-align: center;
+    background-color: white;
+}
+
+.selected{
+    background-color: lightgray;
 }
 
 /* PROFILE HERO IMG // CONTENT */
