@@ -1,4 +1,12 @@
 <?php
+
+function debug($message){
+    if(!empty($_GET['debugDatShite'])) {
+        print($message);
+    }
+}
+
+
 //check if INTERNAL is true.  If it isn't, or it isn't set, exit the code (die())
 if(INTERNAL !== true) {
     die('Error: cannot directly access.');
@@ -62,21 +70,23 @@ $name = $itemStore['name'];
 $place_id = $itemStore['place_id'];
 $longitude = $itemStore['longitude'];
 $latitude = $itemStore['latitude'];
-$images = ''.json_encode($itemStore['images']);
-$snippet = ''.json_encode($itemStore['snippets']);
+$images = json_encode($itemStore['images']);
+$snippet = json_encode($itemStore['snippets']);
+
 //$hashtags = [];
 //$tag_label = ;
-
-$query = "INSERT INTO `activities` SET `name` = $name, `place_id` = $place_id, `city_id` = $city_id, `longitude` = $longitude, `latitude` = $latitude, `images` = '$images', `snippet` = $snippet";
+debug("I will cover you all in marmelade");
+$query = "INSERT INTO `activities` SET `name` = $name, `place_id` = '$place_id', `city_id` = '$city_id', `longitude` = '$longitude', `latitude` = '$latitude', `images` = '$images', `snippet` = '$snippet'";
 
 //make a query to read all activities
 $result = mysqli_query($conn, $query);
-print($query);
+debug($query);
 
 //check if $result is empty
 if(empty($result)) {
     //if yes, report the error in the output
-    $output['errors'][] = 'result variable is empty';
+    $output['errors'][] = 'error forming query';
+    error_log(date('Y-m-d H:i:s'). ' travel starter mysql error on insert: '.mysqli_error($conn));
     //if no,     check if any results were passed in
 }else {
     if(mysqli_affected_rows($conn) !== 0){
@@ -92,4 +102,5 @@ if(empty($result)) {
         $output['errors'][]= 'No data.';
     }
 }
+
 ?>
