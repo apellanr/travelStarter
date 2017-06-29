@@ -9,15 +9,33 @@ import Search from './search';
 import Footer from './footer';
 
 class BuildSearch extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            active: false
+        }
+        
+        this.className = this.state.active ?  'nav-link tab-links' : ' nav-link tab-links selected';
+
+    }
+    
+    toggleActive() {
+        console.warn('build tab clicked');
+        this.setState({
+            active: !this.state.active
+        })
+    }
+
     searchLink() {
         const addressArray = this.props.match.url.split('/');
         if(addressArray[2] === 'build') {
             return(
-                <Link className="nav-link" to={`/buildsearch/search/${this.props.match.params.id}/${this.props.currentSearchPage[0]}/${this.props.currentSearchPage[1]}`}>Search</Link>
+                <Link className={this.className} to={`/buildsearch/search/${this.props.match.params.id}/${this.props.currentSearchPage[0]}/${this.props.currentSearchPage[1]}`} onClick={() => this.toggleActive()}>Search</Link>
             )
         }
         return(
-            <Link className="nav-link" to={`/buildsearch/search/${this.props.match.params.id}`}>Search</Link>
+            <Link className={this.className} to={`/buildsearch/search/${this.props.match.params.id}`} onClick={() => this.toggleActive()}>Search</Link>
         )
     }
     
@@ -28,13 +46,12 @@ class BuildSearch extends Component {
 
         return(
             <div className='buildsearchpage'>
-                <h1>Build/Search Page</h1>
-                <ul className="nav nav-pills nav-fill">
-                    <li className="nav-item">
+                <ul className="nav nav-tabs build-tabs">
+                    <li className='nav-item'>
                         {this.searchLink()}
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to={`/buildsearch/build/${this.props.match.params.id}`}>Build</Link>
+                    <li className='nav-item'>
+                        <Link className={this.className} to={`/buildsearch/build/${this.props.match.params.id}`}>Build</Link>
                     </li>
                 </ul>
 

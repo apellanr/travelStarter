@@ -22,7 +22,7 @@ class BuildPage extends Component {
         console.log(data);
         return(
             <div>
-                <h1>Build Page</h1>
+                <h2 className="text-center">Added Items</h2>
                 <div>
                     {this.list()}
                 </div>
