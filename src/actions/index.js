@@ -40,9 +40,7 @@ export function currentPage(arr) {
 
 export function selectItinerary(itinerary){
     console.log('itinerary in action creator:', itinerary);
-    const request = axios.get('http://localhost:8888/LFZ_Bootcamp/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=readItinerary', {
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-});
+    const request = axios.get('http://travelstarter.world/prototypes/phpFileStructureProto/api.php?action=readItinerary');
     return {
         type: actions.ITINERARY_SELECTED,
         payload: request
