@@ -9,7 +9,7 @@ if(INTERNAL !== true) {
     die('Error: cannot directly access.');
 }
 
-$query = "";
+$query = "INSERT INTO  SET  ";
 
 //make a query to read all activities
 $result = mysqli_query($conn, $query);
