@@ -2,7 +2,7 @@ import axios from 'axios';
 import actions from './types';
 
 const BASE_URL = 'https://www.triposo.com/api/v2/poi.json?location_id=';
-const END_URL = '&count=50&fields=all&tag_labels=';
+const END_URL = '&count=40&fields=all&tag_labels=';
 const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
 
@@ -29,7 +29,7 @@ export function fetchPlaces(city, query) {
 export function clearPlaces() {
     return{
         type: actions.CLEAR_PLACES,
-        payload: {}
+        payload: null
     }
 }
 
@@ -57,8 +57,8 @@ export function itineraryClose(){
 }
 
 export function addPlace(val) {
-    const request = axios.post('http://localhost:8888/LFZ_Bootcamp/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=createItem', {
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    const request = axios.post('http://travelstarter.world/prototypes/phpFileStructureProto/api.php?action=createItem', {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: val
     }).then((resp) => console.log(resp));
     return{
