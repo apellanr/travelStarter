@@ -5,8 +5,13 @@ import { addPlace } from '../actions';
 // const card = (props) => {
 class Card extends Component {
     handleClick() {
+        const place = {
+            userId: 1,
+            itinId: 1,
+            data: this.props.info
+        }
         console.log(this.props.info)
-        this.props.addPlace(this.props.info);
+        this.props.addPlace(place);
     }
     render() {
     return (

@@ -13,6 +13,10 @@ if(INTERNAL !== true) {
 }
 
     $entityBody = file_get_contents('php://input');
+//ALEX IS AMAZING. intercepts first firing of blank axios call to database.
+    if(empty($entityBody)) {
+        die('Error: Axios.');
+    }
     //$entityBody = file_get_contents('includes/dummy.json');
     $dataMaster= json_decode($entityBody,true);
     $user_id = $dataMaster['userId'];
@@ -22,7 +26,7 @@ if(INTERNAL !== true) {
 //        //generate a new itinerary id
 //    }
     //generate hash of data in json format
-    $data = $dataMaster['data'];
+    $data = $dataMaster['data']['data'];
 
     $itemStore = [];
     $itemStore['id_hash'] = md5($entityBody);
@@ -89,6 +93,7 @@ if(empty($result)) {
     error_log(date('Y-m-d H:i:s'). ' travel starter mysql error on insert: '.mysqli_error($conn));
     //if no,     check if any results were passed in
 }else {
+
     if(mysqli_affected_rows($conn) !== 0){
         //if yes,
         $output['success']= true;
