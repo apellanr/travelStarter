@@ -4,14 +4,16 @@ function debug($message){
         print($message);
     }
 }
-
+if(!isset($_GET['itinID'])){
+    array_push($output['errors'], 'ERROR: Insufficient Data');
+};
 //INTERNAL prevents direct access to this file from front-end query. Must access via switch statement in api.php
 //check if INTERNAL is true.  If it isn't, or it isn't set, exit the code (die())
 if(INTERNAL !== true){
     die('Error: cannot directly access.');
 }
 
-$itinID= '2';
+$itinID= mysqli_real_escape_string($conn, $_GET['itinID']);
 
 //checks database for all existing itineraries and sends that data
 $query = "SELECT i.id AS itinerary_id, i.itinerary_name AS itinerary_name, i.creator_id,

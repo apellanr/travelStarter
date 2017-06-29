@@ -8,8 +8,8 @@ function debug($message){
 if(INTERNAL !== true) {
     die('Error: cannot directly access.');
 }
-$itinerary_name = 'user input';
-$user_id = 'user id';
+$itinerary_name = mysqli_real_escape_string($conn, $_GET['itinerary_name']);
+$user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
 $timestamp = date('Y-m-d H:i:s');
 
 $query = "INSERT INTO `itineraries` SET `itinerary_name` = '$itinerary_name', `creator_id` = '$user_id' `timestamp` = '$timestamp'";
@@ -37,5 +37,4 @@ if(empty($result)) {
         $output['errors'][]= 'No data.';
     }
 }
-
 ?>
