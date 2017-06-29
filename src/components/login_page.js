@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { signIn } from '../actions';
 import FB from './facebook';
 
 class LoginForm extends Component {
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.auth) {
+            this.props.history.push('/home')
+        }
+    }
+
     submitForm(val) {
-        console.log(val);
+        console.log('login in submission', val);
+        this.props.signIn(vals);
     }
     
     renderField(field) {
@@ -29,9 +37,9 @@ class LoginForm extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <div>
+            <div className="container">
                 <h1>Login</h1>
-                <form onSubmit={handleSubmit((val) => this.submitForm(val))}>
+                <form>
                     <Field
                         name='username'
                         type='text'
@@ -47,7 +55,7 @@ class LoginForm extends Component {
                     <button className='btn btn-primary' type='submit'>Login</button>
                 </form>
                 <br/>
-                <FB />
+                <FB onSubmit={handleSubmit((val) => this.submitForm(val))}/>
             </div>
         )
     }
@@ -71,4 +79,10 @@ LoginForm = reduxForm({
     validate
 })(LoginForm);
 
-export default connect(null)(LoginForm);
+function mapStateToProps(state) {
+    return {
+        auth: state.auth.authorized
+    }
+}
+
+export default connect(mapStateToProps, {signIn})(LoginForm);

@@ -6,6 +6,8 @@ const END_URL = '&count=40&fields=all&tag_labels=';
 const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
 
+const LOGIN_URL = '';
+
 const phpCall = axios.create('', {
     headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': 'http://localhost:3000'}
 });
@@ -39,10 +41,11 @@ export function currentPage(arr) {
 }
 
 export function selectItinerary(itinerary){
-    console.log('itinerary in action creator:', itinerary);
+    // console.log('itinerary in action creator:', itinerary);
+    const request = axios.get('http://localhost:8888/finalProject/C417_travelStarter/prototypes/phpFileStructureProto/api.php?action=readItinerary');
     return {
         type: 'ITINERARY_SELECTED',
-        payload: itinerary
+        payload: request
     }
 }
 
@@ -61,5 +64,45 @@ export function addPlace(val) {
     return{
         type: actions.ADD_PLACE,
         payload: request
+    }
+}
+
+export function signUp({email, password}) {
+    return (dispatch) => {
+        axios.post(`${LOGIN_URL}/signup`, { email, password }).then((resp) => {
+            console.log('response from signup:', resp);
+
+            localStorage.setItem('token', resp.data.token)
+
+            dispatch({
+                type: action.SIGN_UP,
+            })
+        }).catch( error => {
+            console.log('error', error.response.data.error);
+            dispatch(sendError(error.response.data.error));
+        });
+    }    
+}
+
+export function signIn({ email, password }) {
+    return (dispatch) => {
+        axios.post(`${LOGIN_URL}/signin`, { email, password}).then((resp) => {
+            console.log('response from signin:', resp);
+
+            localStorage.setItem('token', resp.data.token)
+
+            dispatch({
+                type: actions.SIGN_IN,
+            })
+        }).catch( error => {
+                
+        })
+    }
+}
+
+function sendError(error){
+    return {
+        type: actions.ERROR,
+        error
     }
 }
