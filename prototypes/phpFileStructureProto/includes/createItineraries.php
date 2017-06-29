@@ -8,8 +8,11 @@ function debug($message){
 if(INTERNAL !== true) {
     die('Error: cannot directly access.');
 }
+$itinerary_name = 'user input';
+$user_id = 'user id';
+$timestamp = date('Y-m-d H:i:s');
 
-$query = "INSERT INTO  SET  ";
+$query = "INSERT INTO `itineraries` SET `itinerary_name` = '$itinerary_name', `creator_id` = '$user_id' `timestamp` = '$timestamp'";
 
 //make a query to read all activities
 $result = mysqli_query($conn, $query);

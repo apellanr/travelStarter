@@ -43,6 +43,12 @@ if(empty( $_GET['action'])) {
         case 'createItem':
             include 'includes/createItems.php';
             break;
+        case 'createItinerary':
+            include 'includes/createItineraries.php';
+            break;
+        case 'displayItinerary':
+            include 'includes/itinDisplay.php';
+            break;
     }
 }
 //json encode the output

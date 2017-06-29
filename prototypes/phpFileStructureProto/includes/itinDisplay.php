@@ -11,20 +11,25 @@ if(INTERNAL !== true){
     die('Error: cannot directly access.');
 }
 
+$itinID= '2';
+
 //checks database for all existing itineraries and sends that data
+$query = "SELECT i.id AS itinerary_id, i.itinerary_name AS itinerary_name, i.creator_id,
+	IinI.index_in_itinerary,
+    a.name AS activity_name,
+    a.city_id AS city_id,
+    a.latitude AS latitude,
+    a.longitude AS longitude,
+    a.tag_label AS category,
+    a.images AS image_list
+    FROM itineraries AS i
+    JOIN items_in_itinerary AS IinI
+	ON i.id = IinI.itinerary_id
+    JOIN activities AS a
+	ON a.id = IinI.activity_id
+	WHERE `itinerary_id` = '$itinID'";
 
-$query = "SELECT i.id AS itinerary_id, 
-          i.itinerary_name AS itinerary_name,
-          i.creator_id, 
-          a.city_id AS city_id,
-          a.images AS image_list
-          FROM itineraries AS i 
-          JOIN items_in_itinerary AS IinI ON i.id = IinI.itinerary_id 
-          JOIN activities AS a ON a.id = IinI.activity_id 
-          WHERE index_in_itinerary = 0 
-          LIMIT 10";
-
-//$query = "SELECT `id`, `itinerary_name`, `creator_id`, `timestamp` FROM `itineraries` LIMIT 10";
+//$query = "SELECT `id`, `itinerary_name`, `creator_id`, `timestamp` FROM `itineraries`";
 
 /* "SELECT i.id AS itinerary_id, i.itinerary_name AS itinerary_name, i.creator_id,
 	IinI.index_in_itinerary,
@@ -51,16 +56,16 @@ if(empty($result)) {
     //if no,     check if any results were passed in
 }else {
     if(mysqli_num_rows($result) !== 0){
-    //if yes,
-    $output['success']= true;
-    //set the success to true
-    //do a while loop to fetch all the information, put it into an array
-    while($row = mysqli_fetch_assoc($result)){
-        $output['data'][] = $row;
-    }
-    //if no, report the error in the output
+        //if yes,
+        $output['success']= true;
+        //set the success to true
+        //do a while loop to fetch all the information, put it into an array
+        while($row = mysqli_fetch_assoc($result)){
+            $output['data'][] = $row;
+        }
+        //if no, report the error in the output
     }else{
-    $output['errors'][]= 'No data.';
+        $output['errors'][]= 'No data.';
     }
 }
 ?>
