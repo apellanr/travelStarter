@@ -16,7 +16,7 @@ class BuildSearchCitySelect extends Component {
     render() {
         return(
             <div className="select-container">
-                <h2 className="header-text text-center">City Navigator</h2>
+                <h2 className="header-text text-center"><i className="material-icons">place</i>City Navigator</h2>
                     <Link to="/buildsearch/search/Los_Angeles"><CitySelect name="Los Angeles" className="la"/></Link>
                     <Link to="/buildsearch/search/Madrid"><CitySelect name="Madrid" className="mad"/></Link>
                 <Footer />

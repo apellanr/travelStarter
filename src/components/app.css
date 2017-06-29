@@ -103,6 +103,8 @@ a {
 .profile-lead {
     font-size: 40px;
     font-family: 'Playfair Display', serif;
+    margin-top: 60px;
+    text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 }
 
 /* COMP CONTAINERS */
@@ -142,6 +144,8 @@ a {
 .trip-block {
     padding: 10px;
     border-radius: 0;
+    background: lightgray;
+    font-family: 'Playfair Display', serif;
 }
 
 .city-jumbo {
@@ -155,7 +159,7 @@ a {
     background-size: cover;
 }
 
-.jumbo-content {
+.jumbo-content, .trip-name {
     display: flex;
     font-family: 'Playfair Display', serif;
     align-items: center;
@@ -165,11 +169,16 @@ a {
     color: white;
 }
 
-.header-text {
-    padding: 13px;
+.trip-card {
+    margin: 10px 0;
 }
 
-/* sidenav component */
+.header-text {
+    padding: 13px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* SIDENAV COMPONENT*/
 .hidden-sideNav {
     height: 100%;
     width: 290px;
@@ -271,7 +280,7 @@ hr {
 
 /*       */
 
-@media (min-width: 895px) { 
+@media (min-width: 760px) { 
     .profile-hero {
         background: url("./imgs/road.jpg");
         height: 40vh;
@@ -284,7 +293,14 @@ hr {
         height: 95vh;
     }
     .profile-lead {
-        font-size: 50px;
+        font-size: 60px;
+        margin-top: 60px;
+    }
+}
+
+@media (min-width: 470px) {
+     .Madrid, .Los_Angeles {
+        background-position: center center;
     }
 }
 

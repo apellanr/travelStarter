@@ -86,7 +86,7 @@ class SearchList extends Component {
         }
 
         return(
-            <div>
+            <div className="container">
                 { this.list() }
                 <nav className='mx-auto'>
                     <ul className='pagination pagination-md justify-content-center'>

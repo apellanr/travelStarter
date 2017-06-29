@@ -7,7 +7,6 @@ import {
 import _ from 'lodash';
 import { fetchPlaces, currentPage } from '../actions';
 import SearchList from './searchlist';
-import { citySelect } from './city_fxns';
 
 class SearchPage extends Component {    
     // componentDidMount() {
@@ -34,8 +33,8 @@ class SearchPage extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <div className="container">
-                <div className="card mb-3">
+            <div>
+               <div className="card trip-card">
                     <img className={`card-img-top ${this.props.match.params.id}`}/>
                     <div className="card-block trip-block">
                         <h5 className="text-center">Trip to {this.replaceUnderscore(this.props.match.params.id)}</h5>
