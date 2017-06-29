@@ -31,10 +31,10 @@ export function clearPlaces() {
     }
 }
 
-export function currentPage(num) {
+export function currentPage(arr) {
     return{
         type: actions.CURRENT_PAGE,
-        payload: num
+        payload: arr
     }
 }
 

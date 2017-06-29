@@ -26,7 +26,7 @@ class SearchPage extends Component {
 
     handleClick(query) {
         this.props.poi = null;
-        this.props.fetchPlaces(this.props.match.params.id, query);
+        //this.props.fetchPlaces(this.props.match.params.id, query);
         this.props.currentPage(1);
     }
 
@@ -34,16 +34,21 @@ class SearchPage extends Component {
         const { handleSubmit } = this.props;
         return(
             <div>
-                <h1>Discover {this.replaceUnderscore(this.props.match.params.id)}!</h1>
-                <ul className="nav nav-pills nav-justify">
+               <div className="card trip-card">
+                    <img className={`card-img-top ${this.props.match.params.id}`}/>
+                    <div className="card-block trip-block">
+                        <h5 className="text-center">Trip to {this.replaceUnderscore(this.props.match.params.id)}</h5>
+                    </div>
+                </div>
+                <ul className="nav nav-pills nav-justify filter-container">
                     <li className="nav-item">
-                        <Link to={`/buildsearch/search/${this.props.match.params.id}/entertainment/1`} className="nav-link btn btn-primary" onClick={() => this.handleClick('cuisine-Beer')}>Entertainment</Link>
+                        <Link to={`/buildsearch/search/${this.props.match.params.id}/entertainment/1`} className="nav-link btn btn-primary" onClick={() => this.handleClick('nightlife')}><i className="material-icons filter-btns">local_bar</i>Drinks</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/buildsearch/search/${this.props.match.params.id}/food/1`} className="nav-link btn btn-warning" onClick={() => this.handleClick('eatingout')}>Food</Link>
+                        <Link to={`/buildsearch/search/${this.props.match.params.id}/food/1`} className="nav-link btn btn-warning" onClick={() => this.handleClick('eatingout')}><i className="material-icons filter-btns">local_dining</i>Dining</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/buildsearch/search/${this.props.match.params.id}/sightseeing/1`} className="nav-link btn btn-danger" onClick={() => this.handleClick('sightseeing')}>Sightseeing</Link>
+                        <Link to={`/buildsearch/search/${this.props.match.params.id}/sightseeing/1`} className="nav-link btn btn-danger" onClick={() => this.handleClick('sightseeing')}><i className="material-icons filter-btns">directions_walk</i>Sights</Link>
                     </li>
                 </ul>
                 <div>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addPlace } from '../actions';
 
-// const card = (props) => {
 class Card extends Component {
     handleClick() {
         const place = {
@@ -10,7 +9,7 @@ class Card extends Component {
             itinId: 1,
             data: this.props.info
         }
-        console.log(this.props.info)
+        console.log(place);
         this.props.addPlace(place);
     }
     render() {

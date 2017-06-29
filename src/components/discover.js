@@ -6,7 +6,7 @@ import Footer from './footer';
 export default ()=>{
     return(
         <div className="discover-container">
-            <Mask header="Featured Itineraries"/>
+            <Mask header="featured trips" lead="discover your next adventure"/>
             <div>
               <ItineraryList/>
               <Footer />

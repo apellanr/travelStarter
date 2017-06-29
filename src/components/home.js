@@ -20,7 +20,7 @@ class Home extends Component{
             <div>
                 <div className="jumbotron profile-hero">
                 <div className="jumbo-content">
-                    <div className="profile-lead">Hello, Ryan!</div>
+                    <div className="profile-lead">Welcome back!</div>
                 </div>
             </div>
             
