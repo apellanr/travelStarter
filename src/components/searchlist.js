@@ -87,15 +87,15 @@ class SearchList extends Component {
 
         return(
             <div className="container">
-                { this.list() }
+                <div className="card-grid">
+                    { this.list() }
+                </div>
                 <nav className='mx-auto'>
                     <ul className='pagination pagination-md justify-content-center'>
                         <li className={`page-item ${this.props.currentSearchPage[1] === 1 ? 'disabled' : ''}`}>
                             <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage[1])-1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage[1])-1)}>&laquo;</Link>
                         </li>
-
                         { this.pagination() }
-
                         <li className={`page-item ${this.props.currentSearchPage[1] === lastPage ? 'disabled' : ''}`}>
                             <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage[1])+1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage[1])+1)}>&raquo;</Link>
                         </li>

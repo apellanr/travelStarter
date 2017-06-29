@@ -39,10 +39,11 @@ export function currentPage(arr) {
 }
 
 export function selectItinerary(itinerary){
-    console.log('itinerary in action creator:', itinerary);
+    // console.log('itinerary in action creator:', itinerary);
+    const request = axios.get('http://localhost:8888/finalProject/C417_travelStarter/prototypes/phpFileStructureProto/api.php?action=readItinerary');
     return {
         type: 'ITINERARY_SELECTED',
-        payload: itinerary
+        payload: request
     }
 }
 

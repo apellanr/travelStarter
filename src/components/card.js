@@ -14,7 +14,7 @@ class Card extends Component {
     }
     render() {
     return (
-        <div className="container">
+        <div>
             <div className="card" style={{width: 20 + 'rem'}}>
                 <img className="card-img-top" src={this.props.img} alt="Card image cap"/>
                 <div className="card-block">
