@@ -28,6 +28,29 @@ class SearchList extends Component {
         this.props.fetchPlaces(addressArray[3], query);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+            const addressArray = this.props.match.url.split('/');
+            this.props.currentPage([this.props.match.params.searchQuery, addressArray[5]]);
+            let query = null;
+            switch(addressArray[4]) {
+                case 'entertainment':
+                    query = 'nightlife';
+                    break;
+                case 'food':
+                    query = 'eatingout';
+                    break;
+                case 'sightseeing':
+                    query = 'sightseeing';
+                    break;
+                default:
+                    query = '';
+                    break;
+            }
+            this.props.fetchPlaces(addressArray[3], query);
+        }
+    }
+
     handlePageClick(e) {
         this.props.currentPage(e);
     }
@@ -71,7 +94,7 @@ class SearchList extends Component {
 
         return tempArray.map((place, index) => {
             const image = place.images.length === 0 ? noImg : place.images[0].source_url;
-            return <Card key={index} title={place.name} text={place.snippet} img={image} info={place} />
+            return <Card key={index} title={place.name} text={place.snippet} img={image} info={place} tag_label={this.props.match.params.searchQuery} />
         });
     }
 
@@ -87,15 +110,15 @@ class SearchList extends Component {
 
         return(
             <div className="container">
-                { this.list() }
+                <div className="card-grid">
+                    { this.list() }
+                </div>
                 <nav className='mx-auto'>
                     <ul className='pagination pagination-md justify-content-center'>
                         <li className={`page-item ${this.props.currentSearchPage[1] === 1 ? 'disabled' : ''}`}>
                             <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage[1])-1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage[1])-1)}>&laquo;</Link>
                         </li>
-
                         { this.pagination() }
-
                         <li className={`page-item ${this.props.currentSearchPage[1] === lastPage ? 'disabled' : ''}`}>
                             <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${Number(this.props.currentSearchPage[1])+1}`} onClick={() => this.handlePageClick(Number(this.props.currentSearchPage[1])+1)}>&raquo;</Link>
                         </li>

@@ -5,7 +5,7 @@ import {
     Route
  } from 'react-router-dom';
 import _ from 'lodash';
-import { fetchPlaces, currentPage } from '../actions';
+import { fetchPlaces, currentPage, clearPlaces } from '../actions';
 import SearchList from './searchlist';
 
 class SearchPage extends Component {    
@@ -25,7 +25,9 @@ class SearchPage extends Component {
     }
 
     handleClick(query) {
-        this.props.poi = null;
+        //this.props.poi = null;
+        this.props.clearPlaces();
+        console.log('searchhandleclick');
         //this.props.fetchPlaces(this.props.match.params.id, query);
         this.props.currentPage(1);
     }
@@ -66,4 +68,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchPlaces, currentPage })(SearchPage);
+export default connect(mapStateToProps, { fetchPlaces, currentPage, clearPlaces })(SearchPage);
