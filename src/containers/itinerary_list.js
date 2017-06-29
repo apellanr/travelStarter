@@ -1,23 +1,30 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {selectItinerary} from '../actions/index';
-import {bindActionCreators} from 'redux';
 import ItineraryDetails from './itinerary_detail';
+import {fetchItineraries} from '../actions/index';
+
 
 class ItineraryList extends Component {
+
+    componentDidMount(){
+        this.props.fetchItineraries();
+    }
     renderList(){
-        return this.props.itineraries.map((itinerary)=>{
-            if(this.props.active && itinerary.name === this.props.active.name ){
+        console.log('Render list called');
+        console.log('list props.active:', this.props);
+       return this.props.itineraries.map((itinerary)=>{
+            if(this.props.active && itinerary.itinerary_id === this.props.active[0].itinerary_id ){
                 return (
-                    <ItineraryDetails key={itinerary.name} itinerary={itinerary}/>
+                    <ItineraryDetails key={itinerary.itinerary_id} itinerary={this.props.active}/>
                 )
             }
             return(
-                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name}>
-                    <img className="card-img-top" src={itinerary.image} alt="Card image cap"/>
+                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.itinerary_id}>
+                    <img className="card-img-top" src={itinerary.image_list} alt="Card image cap"/>
                     <div className="card-block">
-                        <h4 className="card-title">{itinerary.place}</h4>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h4 className="card-title">{itinerary.city_id}</h4>
+                        <p className="card-text">{itinerary.itinerary_name}</p>
                         <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">select itinerary</a>
                     </div>
                 </div>
@@ -28,6 +35,14 @@ class ItineraryList extends Component {
 
     render(){
         console.log('Active:', this.props.active);
+        if(!this.props.itineraries) {
+            return (
+                <div className="spinner">
+                    <div className="double-bounce1"></div>
+                    <div className="double-bounce2"></div>
+                </div>
+            )
+        }
         return(
             <div className="itinerary-container">
                 <div className="card-grid">
@@ -41,19 +56,13 @@ class ItineraryList extends Component {
 
 
 function mapStateToProps(state){
-    //whatever is returned will show up as props inside BookList
     return{
-        itineraries: state.itineraries.list,
+        itineraries: state.itineraries.all,
         active: state.itineraries.active
-    };
+    }
 }
 
-//anything returned from this function will end up as props on the BookList container
-function mapDispatchToProps(dispatch) {
-    //whenever selectBook is called, the result should be passed to all of our reducers
-    return bindActionCreators({ selectItinerary}, dispatch)
-}
 
-//promotes BookList from component to container -- it needs to know about this new dispatch method, selectBook.
-//Make it available as a prop
-export default connect(mapStateToProps, mapDispatchToProps)(ItineraryList);
+
+
+export default connect(mapStateToProps, {fetchItineraries, selectItinerary})(ItineraryList);
