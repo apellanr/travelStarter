@@ -54,13 +54,12 @@ export function itineraryClose(){
 }
 
 export function addPlace(val) {
-    const request = phpCall.get('http://localhost:8888/LFZ_Bootcamp/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=readItinerary').then((resp) => {
-        console.log(resp)
-    });
-
+    const request = axios.post('http://localhost:8888/LFZ_Bootcamp/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=createItem', {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        data: val
+    }).then((resp) => console.log(resp));
     return{
         type: actions.ADD_PLACE,
         payload: request
     }
-
 }
