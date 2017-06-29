@@ -7,6 +7,7 @@ class Card extends Component {
         const place = {
             userId: 1,
             itinId: 1,
+            tag_label: this.props.tag_label,
             data: this.props.info
         }
         console.log(place);

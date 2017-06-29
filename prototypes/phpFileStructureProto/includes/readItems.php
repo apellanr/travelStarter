@@ -10,6 +10,9 @@ function debug($message){
 if(INTERNAL !== true){
     die('Error: cannot directly access.');
 }
+
+mysqli_set_charset($conn,'utf8');
+
 //checks database for all existing items and sends that data
 $query = "SELECT `id`, `name`, `date_queried`, `place_id`, `city_id`, `longitude`, `latitude`, `images`, `snippet`, `hashtags`, `tag_label` FROM `activities`";
 
