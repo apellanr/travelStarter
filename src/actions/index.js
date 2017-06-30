@@ -42,19 +42,19 @@ export function currentPage(arr) {
 }
 
 export function fetchItineraries() {
-    const request = axios.get('http://localhost:8888/C4.17_travelStarter/travel_final_project/prototypes/phpFileStructureProto/api.php?action=readItinerary');
+    // const request = axios.get('http://localhost:8888/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=readItinerary').then((resp) => console.log('resp', resp));
+    // console.log('action', request);
     return {
         type: 'FETCH_ITINERARIES',
         payload: request
     }
 }
 
-export function selectItinerary(itinerary, itinID){
+export function selectItinerary(itinerary){
     console.log('itinerary in action creator:', itinerary);
-    const request = axios.get(`${ROOT_URL}displayItinerary&${itinID}`);
     return {
         type: 'ITINERARY_SELECTED',
-        payload: request
+        payload: itinerary
     }
 }
 
@@ -66,7 +66,7 @@ export function itineraryClose(){
 }
 
 export function addPlace(val) {
-    const request = axios.post('http://travelstarter.world/prototypes/phpFileStructureProto/api.php?action=createItem', {
+    const request = axios.post('http://localhost:8888/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=addToItin', {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: val
     }).then((resp) => console.log(resp));
