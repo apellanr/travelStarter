@@ -1,4 +1,6 @@
 <?php
+//ADDS NEW ENTRY INTO SPECIFIED ITINERARY
+
 function debug($message){
     if(!empty($_GET['debug'])) {
         print($message);
@@ -21,7 +23,7 @@ $itinerary_id = mysqli_real_escape_string($conn, $_GET['itinID']);
 $activity_id = mysqli_real_escape_string($conn, $_GET['activity_id']);
 $timestamp = date('Y-m-d H:i:s');
 
-$query = "INSERT INTO items_in_itinerary SET `itinerary_id` = '$itinerary_id', index_in_itinerary=(SELECT MAX(i.index_in_itinerary)+1 FROM items_in_itinerary i WHERE `itinerary_id` = '$itinerary_id'), `activity_id` = '$activity_id', `timestamp` = '$timestamp'";
+$query = "INSERT INTO `items_in_itinerary` SET `itinerary_id` = '$itinerary_id', `index_in_itinerary` = (SELECT MAX(i.index_in_itinerary)+1 FROM `items_in_itinerary` AS `i` WHERE `itinerary_id` = '$itinerary_id'), `activity_id` = '$activity_id', `timestamp` = '$timestamp'";
 
 $result = mysqli_query($conn, $query);
 debug($query);

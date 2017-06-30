@@ -8,11 +8,12 @@ function debug($message){
 if(INTERNAL !== true) {
     die('Error: cannot directly access.');
 }
+
 $itinerary_name = mysqli_real_escape_string($conn, $_GET['itinerary_name']);
 $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
 $timestamp = date('Y-m-d H:i:s');
 
-$query = "INSERT INTO `itineraries` SET `itinerary_name` = '$itinerary_name', `creator_id` = '$user_id' `timestamp` = '$timestamp'";
+$query = "INSERT INTO `itineraries` SET `itinerary_name` = '$itinerary_name', `creator_id` = '$user_id', `progress` = 'draft' ON DUPLICATE KEY UPDATE `id` = `id`";
 
 //make a query to read all activities
 $result = mysqli_query($conn, $query);
@@ -32,7 +33,9 @@ if(empty($result)) {
         while($row = mysqli_fetch_assoc($result)){
             $output['data'][] = $row;
         }
+        include('createItems.php');
         //if no, report the error in the output
+
     }else{
         $output['errors'][]= 'No data.';
     }

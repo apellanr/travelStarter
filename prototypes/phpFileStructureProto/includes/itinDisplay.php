@@ -1,4 +1,6 @@
 <?php
+//DISPLAYS CLICKED ITINERARY
+
 function debug($message){
     if(!empty($_GET['debug'])) {
         print($message);
