@@ -5,9 +5,9 @@ const BASE_URL = 'https://www.triposo.com/api/v2/poi.json?location_id=';
 const END_URL = '&count=40&fields=all&tag_labels=';
 const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
-const ROOT_URL = 'http://localhost:8888/C4.17_travelStarter/travel_final_project/prototypes/phpFileStructureProto/api.php?action=';
+const ROOT_URL = 'http://localhost:8888/travel_final_project/prototypes/phpFileStructureProto/api.php?action=';
 
-const LOGIN_URL = '';
+const LOGIN_URL = 'http://localhost:8888/travel_final_project/prototypes/facebookLogin/fb_login_data/fb_user_info.php';
 
 const phpCall = axios.create('', {
     headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': 'http://localhost:3000'}
@@ -105,6 +105,24 @@ export function signIn({ email, password }) {
             })
         }).catch( error => {
                 
+        })
+    }
+}
+
+export function facebookSignin(facebookUser) {
+    return (dispatch) => {
+        axios.post(`${LOGIN_URL}`, facebookUser).then((resp) => {
+            console.log('response from signin:', resp);
+
+            localStorage.setItem('token', resp.data.token)
+
+            dispatch({
+                type: actions.SIGN_IN,
+            })
+        }).catch( error => {
+                console.log('There was an error:', error);
+
+                dispatch({ type: 'idk'});
         })
     }
 }

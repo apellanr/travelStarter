@@ -13,7 +13,7 @@ class LoginForm extends Component {
 
     submitForm(val) {
         console.log('login in submission', val);
-        this.props.signIn(vals);
+        this.props.signIn(val);
     }
     
     renderField(field) {
@@ -55,7 +55,7 @@ class LoginForm extends Component {
                     <button className='btn btn-primary' type='submit'>Login</button>
                 </form>
                 <br/>
-                <FB onSubmit={handleSubmit((val) => this.submitForm(val))}/>
+                <FB />
             </div>
         )
     }
