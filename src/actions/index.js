@@ -5,7 +5,7 @@ const BASE_URL = 'https://www.triposo.com/api/v2/poi.json?location_id=';
 const END_URL = '&count=40&fields=all&tag_labels=';
 const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
-const ROOT_URL = 'http://localhost:8888/travel_final_project/prototypes/phpFileStructureProto/api.php?action=';
+const ROOT_URL = 'http://localhost:8888/C4.17_travelStarter/travel_final_project/prototypes/phpFileStructureProto/api.php?action=';
 
 const LOGIN_URL = '';
 
@@ -42,7 +42,7 @@ export function currentPage(arr) {
 }
 
 export function fetchItineraries() {
-    const request = axios.get('http://localhost:8888/travel_final_project/prototypes/phpFileStructureProto/api.php?action=readItinerary');
+    const request = axios.get('http://localhost:8888/C4.17_travelStarter/travel_final_project/prototypes/phpFileStructureProto/api.php?action=readItinerary');
     return {
         type: 'FETCH_ITINERARIES',
         payload: request

@@ -3,6 +3,11 @@
     height: 92vh;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
@@ -189,7 +194,6 @@ a {
     transition: transform 450ms;
     transform: translate(-300px, 0px);
     box-sizing: border-box;
-    /*box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23);*/
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-radius: 0px;
     overflow-x: hidden;

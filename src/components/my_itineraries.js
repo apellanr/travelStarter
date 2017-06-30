@@ -45,10 +45,13 @@ class ItineraryList extends Component {
         }
         return(
             <div className="itinerary-container">
+                <div>
+                    <div className="trip-header">My Trips</div>
+                    <div>You have no published trips</div>
+                </div>
                 <div className="card-grid">
                     {this.renderList()}
                 </div>
-
             </div>
         )
     }
