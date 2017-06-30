@@ -8,7 +8,7 @@ class ItineraryDetail extends Component {
                 <img className="card-img-top" src={this.props.itinerary.image} alt="Card image cap"/>
                 <div className="card-block">
                     <h4 className="card-title">{this.props.itinerary.place}</h4>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p className="card-text">{this.props.itinerary.name}</p>
                 </div>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">{this.props.itinerary.locations[0]}</li>
@@ -16,7 +16,6 @@ class ItineraryDetail extends Component {
                     <li className="list-group-item">{this.props.itinerary.locations[2]}</li>
                 </ul>
                 <div className="card-block">
-                    <a href="#" className="card-link">Card link</a>
                     <a onClick = {()=> this.props.itineraryClose()} type="button" className="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                 </div>
             </div>

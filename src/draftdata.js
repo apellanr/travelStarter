@@ -1,20 +1,21 @@
 export default  {
     list: [
         {  place: "New York",
-            name:"Museo del Prado",
-            locations:['restaurant1', 'museum1','park1'],
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg/1920px-Museo_del_Prado_2016_%2825185969599%29.jpg"
+            name:"The Sopranos",
+            locations:['Central Park', 'MOMA','La Contenta'],
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg/1920px-Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg"
         },
-        {  place: "Spain",
-            name:  "Palacio Real",
-            locations:['restaurant2', 'museum2','park2'],
-            image: "https://www.esmadrid.com/sites/default/files/styles/content_type_full/public/recursosturisticos/infoturistica/PalacioReal_1404213219.138.jpg?itok=RCXQXsxQ"
+        {  place: "Los Angeles",
+            name:  "FAME",
+            locations:['Upstate', 'The BROAD', 'LACMA'],
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Highsmithlacmaoblique.jpg/1920px-Highsmithlacmaoblique.jpg"
         },
-        {  place: "Europe",
-            name: "Museo Thyssen-Bornemisza",
-            locations:['restaurant3', 'museum3','park3'],
-            image: "https://afrodita-production.s3.amazonaws.com/images/thyssen-museo-madrid-290716.original.jpg"
+        {  place: "Madrid",
+            name: "Jinwoo's jog at Fiestas of San Fermin",
+            locations:['Sorolla Museum', 'Le Patrón','Casa Lucas'],
+            image: "http://www.telegraph.co.uk/content/dam/men/2016/07/07/GettyImages-479854_3392225b-large_trans_NvBQzQNjv4BqpJliwavx4coWFCaEkEsb3kvxIt-lGGWCWqwLa_RXJU8.jpg"
         },
+
 
     ]
     //active: null,
