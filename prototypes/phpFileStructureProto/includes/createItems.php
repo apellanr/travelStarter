@@ -19,7 +19,7 @@ if(INTERNAL !== true) {
     }
     //$entityBody = file_get_contents('includes/dummy.json');
     $dataMaster= json_decode($entityBody,true);
-    $user_id = $dataMaster['userId'];
+
 //    if(!empty($dataMaster['itinId'])){
 //        $itin_id = $dataMaster['itinId'];
 //    } else {
@@ -27,7 +27,7 @@ if(INTERNAL !== true) {
 //    }
     //generate hash of data in json format
     $data = $dataMaster['data']['data'];
-
+//    $user_id = $dataMaster['userId'];
     $itemStore = [];
     $itemStore['id_hash'] = md5($entityBody);
 
@@ -70,12 +70,12 @@ if(INTERNAL !== true) {
 //    print("<pre>".print_r($itemStore,true)."</pre>");
 
     //checks database for all existing activities and sends that data
-$name = $itemStore['name'];
-$place_id = $itemStore['place_id'];
-$longitude = $itemStore['longitude'];
-$latitude = $itemStore['latitude'];
-$images = json_encode($itemStore['images']);
-$snippet = json_encode($itemStore['snippets']);
+$name = mysqli_real_escape_string($conn, $itemStore['name']);
+$place_id = mysqli_real_escape_string($conn, $itemStore['place_id']);
+$longitude = mysqli_real_escape_string($conn, $itemStore['longitude']);
+$latitude = mysqli_real_escape_string($conn, $itemStore['latitude']);
+$images = mysqli_real_escape_string($conn, json_encode($itemStore['images']));
+$snippet = mysqli_real_escape_string($conn, json_encode($itemStore['snippets']));
 $date_queried = date('Y-m-d H:i:s');
 
 //$hashtags = [];
@@ -90,6 +90,8 @@ debug($query);
 if(empty($result)) {
     //if yes, report the error in the output
     $output['errors'][] = 'error forming query';
+    print($query);
+    $output['errors'][] = $query;
     error_log(date('Y-m-d H:i:s'). ' travel starter mysql error on insert: '.mysqli_error($conn));
     //if no,     check if any results were passed in
 }else {

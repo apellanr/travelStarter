@@ -7,10 +7,12 @@ import './app.css';
 import Navbar from './navbar';
 import Home from './home';
 import BuildSearch from './buildsearch';
-import Itinerary from './my_itineraries';
+import SavedItineraries from './my_itineraries';
 import FindItin from './discover';
 import BuildSearchCitySelect from './buildsearchcityselect';
 import LoginPage from './login_page';
+import DraftPage from './draft';
+
 
 const nav_links = [
     {
@@ -40,8 +42,9 @@ const App = () => (
             <Route path="/buildsearch/cityselect" component={BuildSearchCitySelect} />
             <Route path="/buildsearch/search/:id" component={BuildSearch} />
             <Route path="/buildsearch/build/:id" component={BuildSearch} />
-            <Route path="/my_itineraries" component={Itinerary}/>
+            <Route path="/my_itineraries" component={SavedItineraries}/>
             <Route path="/discover" component={FindItin} />
+            <Route path="/draft" component={DraftPage}/>
         </div>
     </div>
 );

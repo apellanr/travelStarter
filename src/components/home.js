@@ -4,13 +4,15 @@ import {
     Route
 } from 'react-router-dom';
 import Build from './build';
-import Itinerary from './my_itineraries';
+import SavedItineraries from './my_itineraries';
 import Discover from './discover';
 import Data from '../data';
 import SearchIcon from './imgs/search.png';
 import Drafts from './imgs/notepad.png';
 import Publish from './imgs/heart.png';
 import Create from './imgs/pencil.png';
+import DraftPage from './draft';
+
 
 
 class Home extends Component{
@@ -35,13 +37,15 @@ class Home extends Component{
                     <Link to="/my_itineraries"><img src={Publish} alt="Saved" className="profile-icons"/><br/>My Trips</Link>
                 </div>
                 <div className="col-6 ballicon">
-                    <img src={Drafts} alt="Drafts" className="profile-icons"/><br/>Drafts
+                    <Link to="/draft"><img src={Drafts} alt="Drafts" className="profile-icons"/><br/>Drafts</Link>
                 </div>
             </div>
 
                 <Route path ="./buildsearch/cityselect" component={Build}/>
-                <Route path ="./my_itineraries" component={Itinerary}/>
+                <Route path ="./my_itineraries" component={SavedItineraries}/>
                 <Route path ="./discover" component={Discover}/>
+                <Route path ="./draft" component={DraftPage}/>
+
 
             </div>
         )
