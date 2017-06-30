@@ -11,6 +11,7 @@ import SavedItineraries from './my_itineraries';
 import FindItin from './discover';
 import BuildSearchCitySelect from './buildsearchcityselect';
 import LoginPage from './login_page';
+import Signup from './signup';
 import DraftPage from './draft';
 
 
@@ -39,6 +40,7 @@ const App = () => (
         <div>
             <Route exact path="/" component={Home} />
             <Route path='/login' component={LoginPage} />
+            <Route path='/signup' component={Signup} />
             <Route path="/buildsearch/cityselect" component={BuildSearchCitySelect} />
             <Route path="/buildsearch/search/:id" component={BuildSearch} />
             <Route path="/buildsearch/build/:id" component={BuildSearch} />
