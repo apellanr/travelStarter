@@ -5,8 +5,9 @@ import { addPlace } from '../actions';
 class Card extends Component {
     handleClick() {
         const place = {
-            userId: 1,
-            itinId: 1,
+            //userId: 1,
+            activity_id: 2,
+            itinID: 1,
             tag_label: this.props.tag_label,
             data: this.props.info
         }

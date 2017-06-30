@@ -1,21 +1,19 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { itineraryClose } from '../actions/index';
-
 class ItineraryDetail extends Component {
     render() {
-        console.log('Active Itinerary:', this.props.itinerary);
         return(
             <div className="card" style={{width: 20 + 'rem'}}>
-                <img className="card-img-top" src={this.props.itinerary[0].image_list} alt="Card image cap"/>
+                <img className="card-img-top" src={this.props.itinerary.image} alt="Card image cap"/>
                 <div className="card-block">
-                    <h4 className="card-title">{this.props.itinerary.city_id}</h4>
-                    <p className="card-text">{this.props.itinerary.itinerary_name}</p>
+                    <h4 className="card-title">{this.props.itinerary.place}</h4>
+                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{this.props.itinerary[0].activity_name}</li>
-                    <li className="list-group-item">{this.props.itinerary[1].activity_name}</li>
-                    <li className="list-group-item">{this.props.itinerary[2].activity_name}</li>
+                    <li className="list-group-item">{this.props.itinerary.locations[0]}</li>
+                    <li className="list-group-item">{this.props.itinerary.locations[1]}</li>
+                    <li className="list-group-item">{this.props.itinerary.locations[2]}</li>
                 </ul>
                 <div className="card-block">
                     <a href="#" className="card-link">Card link</a>
@@ -25,11 +23,9 @@ class ItineraryDetail extends Component {
         );
     }
 }
-
 function mapStateToProps(state){
     return {
         itinerary: state.activeItinerary
     };
 }
-
 export default connect(null, {itineraryClose})(ItineraryDetail);

@@ -1,68 +1,44 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {selectItinerary} from '../actions/index';
+import {bindActionCreators} from 'redux';
 import ItineraryDetails from './itinerary_detail';
-import {fetchItineraries} from '../actions/index';
-
-
 class ItineraryList extends Component {
-
-    componentDidMount(){
-        this.props.fetchItineraries();
-    }
     renderList(){
-        console.log('Render list called');
-        console.log('list props.active:', this.props);
-       return this.props.itineraries.map((itinerary)=>{
-            if(this.props.active && itinerary.itinerary_id === this.props.active[0].itinerary_id ){
+        return this.props.itineraries.map((itinerary)=>{
+            if(this.props.active && itinerary.name === this.props.active.name ){
                 return (
-                    <ItineraryDetails key={itinerary.itinerary_id} itinerary={this.props.active}/>
+                    <ItineraryDetails key={itinerary.name} itinerary={itinerary}/>
                 )
             }
             return(
-                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.itinerary_id}>
-                    <img className="card-img-top" src={itinerary.image_list} alt="Card image cap"/>
+                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name} >
+                    <img className="card-img-top" src={itinerary.image} alt="Card image cap"/>
                     <div className="card-block">
-                        <h4 className="card-title">{itinerary.city_id}</h4>
-                        <p className="card-text">{itinerary.itinerary_name}</p>
+                        <h4 className="card-title">{itinerary.place}</h4>
+                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">select itinerary</a>
                     </div>
                 </div>
             );
         });
     }
-
-
     render(){
         console.log('Active:', this.props.active);
-        if(!this.props.itineraries) {
-            return (
-                <div className="spinner">
-                    <div className="double-bounce1"></div>
-                    <div className="double-bounce2"></div>
-                </div>
-            )
-        }
         return(
-            <div className="itinerary-container">
-                <div className="card-grid">
-                    {this.renderList()}
-                </div>
-                
+            <div className="container">
+                {this.renderList()}
             </div>
         )
     }
 }
-
-
 function mapStateToProps(state){
     return{
-        itineraries: state.itineraries.all,
+        itineraries: state.itineraries.list,
         active: state.itineraries.active
-    }
+    };
 }
-
-
-
-
-export default connect(mapStateToProps, {fetchItineraries, selectItinerary})(ItineraryList);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ selectItinerary}, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ItineraryList);

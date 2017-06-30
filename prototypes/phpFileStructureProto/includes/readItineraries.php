@@ -10,20 +10,21 @@ function debug($message){
 if(INTERNAL !== true){
     die('Error: cannot directly access.');
 }
-//$post_params_JSON = file_get_contents('php://input');
-$test_params = [
-    'userId'=>4,
-    'filters'=>[
+$post_params_JSON = file_get_contents('php://input');
+//$test_params = [
+//    'userId'=>4,
+//    'filters'=>[
  //       'page'=>4,
  //       'search_userId'=>4,
  //       'city'=>'Madrid',
-        'status'=>'draft'
-    ]
-];
-$post_params_JSON = json_encode($test_params);
+//        'status'=>'draft'
+//    ]
+//];
+//$post_params_JSON = json_encode($test_params);
 $post_params = json_decode($post_params_JSON,true);
 
-print("test:".print_r($post_params,true)."*");
+// ---------------------------------------------
+//print("test:".print_r($post_params,true)."*");
 
 /*
  *
@@ -46,7 +47,8 @@ $limit_clause = 'LIMIT 10';
 if(empty($post_params['filters']['search_userId'])){
     $post_params['filters']['status']='published';
 }
-print_r($post_params);
+// ---------------------------------------------
+//print_r($post_params);
 if(!empty($post_params['filters'])){
     foreach($post_params['filters'] AS $filterKey => $filterValue){
         switch($filterKey){
@@ -64,9 +66,11 @@ if(!empty($post_params['filters'])){
                 $additionalWHEREClause['city'] = "city = '$filterValue'";
                 break;
             case 'status':
-                print("filter value = {$filterValue}");
+                // ---------------------------------------------
+                //print("filter value = {$filterValue}");
                 if($filterValue === 'draft'){
-                    print("testing {$post_params['filters']['search_userId']} VERSUS {$post_params['userId']}");
+                    // ---------------------------------------------
+                    //print("testing {$post_params['filters']['search_userId']} VERSUS {$post_params['userId']}");
                     if(!empty($post_params['filters']['search_userId']) && $post_params['filters']['search_userId']!==$post_params['userId']){
                         $filterValue = 'published';
                     }
@@ -89,18 +93,27 @@ if(!empty($additionalWHEREClause)){
 }
 //checks database for all existing itineraries and sends that data
 
-$query = "SELECT i.id AS itinerary_id, 
+$query = "SELECT i.id AS itinerary_id,
           i.itinerary_name AS itinerary_name,
           i.creator_id, i.progress,
           a.city_id AS city_id,
           a.images AS image_list
-          FROM itineraries AS i 
+          FROM itineraries AS i
           JOIN items_in_itinerary AS IinI ON i.id = IinI.itinerary_id {$additionalWHEREClause}
-          JOIN activities AS a ON a.id = IinI.activity_id 
+          JOIN activities AS a ON a.id = IinI.activity_id
           {$limit_clause}";
 
-print("<br>query = $query");
-exit();
+//$query = "SELECT i.id AS itinerary_id,
+//          i.itinerary_name AS itinerary_name,
+//          i.creator_id, i.progress,
+//          a.city_id AS city_id,
+//          a.images AS image_list
+//          FROM itineraries AS i
+//          JOIN items_in_itinerary AS IinI ON i.id = IinI.itinerary_id
+//          JOIN activities AS a ON a.id = IinI.activity_id ";
+
+//print("<br>query = $query");
+//exit();
 
 //$query = "SELECT `id`, `itinerary_name`, `creator_id`, `timestamp` FROM `itineraries` LIMIT 10";
 
@@ -141,4 +154,5 @@ if(empty($result)) {
     $output['errors'][]= 'No data.';
     }
 }
+
 ?>
