@@ -134,3 +134,14 @@ function sendError(error){
     }
 }
 
+export function getDrafts(){
+    return{
+        type: 'GET_DRAFTS',
+    }
+}
+
+export function savedDrafts(){
+    return{
+        type: 'SAVED_DRAFTS',
+    }
+}

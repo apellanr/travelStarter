@@ -6,12 +6,14 @@ import ItinerariesReducer from './reducer_itineraries';
 import authReducer from './auth_reducer';
 
 
+
 const rootReducer = combineReducers({
     form: formReducer,
     itineraries: ItinerariesReducer,
     cityplaces: searchReducer,
     currentPage: searchReducer,
-    auth: authReducer
+    auth: authReducer,
+
 });
 
 export default rootReducer;
