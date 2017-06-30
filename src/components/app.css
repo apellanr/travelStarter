@@ -92,6 +92,18 @@ a {
     background-color: white;
 }
 
+/* LOGIN PAGE // SIGNUP */
+.login-header {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.user-button {
+    padding: 15px;
+    border-radius: 0;
+}
+
 .selected{
     background-color: lightgray;
 }

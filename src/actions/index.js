@@ -127,6 +127,25 @@ export function facebookSignin(facebookUser) {
     }
 }
 
+export function facebookSignup(facebookUser) {
+    return (dispatch) => {
+        axios.post(`${LOGIN_URL}`, facebookUser).then((resp) => {
+            console.log('response from signup:', resp);
+
+            localStorage.setItem('token', resp.data.token)
+
+            dispatch({
+                type: actions.SIGN_UP,
+            })
+        }).catch( error => {
+                console.log('There was an error:', error);
+
+                dispatch({ type: 'idk'});
+        })
+    }
+}
+
+
 function sendError(error){
     return {
         type: actions.ERROR,

@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import { facebookSignin } from '../actions';
 
 class Facebook extends Component {
+    constructor(props) {
+        super(props);
+    }
     
     responseFacebook(response) {
         console.log(response);
@@ -18,6 +21,8 @@ class Facebook extends Component {
                 appId='1460312270674459'
                 autoLoad = {true}
                 version = 'v2.8'
+                textButton = {this.props.text}
+                isMobile = 'true'
                 fields='first_name,last_name,email,gender,age_range,picture'
                 scope="public_profile,email"
                 callback={(resp => this.responseFacebook(resp))}

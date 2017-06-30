@@ -7,7 +7,7 @@ import FB from './facebook';
 class LoginForm extends Component {
     componentWillReceiveProps(nextProps) {
         if(nextProps.auth) {
-            this.props.history.push('/home')
+            this.props.history.push('/')
         }
     }
 
@@ -37,8 +37,8 @@ class LoginForm extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <div className="container">
-                <h1>Login</h1>
+            <div className="container fb-page">
+                <h1 className="login-header">Login</h1>
                 <form>
                     <Field
                         name='username'
@@ -52,10 +52,9 @@ class LoginForm extends Component {
                         label='Password'
                         component={this.renderField}
                     />
-                    <button className='btn btn-primary' type='submit'>Login</button>
+                    <button className='btn btn-info mr-2 user-button' type='submit'>LOGIN</button>
+                    <FB text="Login with Facebook"/>
                 </form>
-                <br/>
-                <FB />
             </div>
         )
     }
