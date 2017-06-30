@@ -10,7 +10,7 @@ export default  {
             locations:['Upstate', 'The BROAD', 'LACMA'],
             image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Highsmithlacmaoblique.jpg/1920px-Highsmithlacmaoblique.jpg"
         },
-        {  place: "Madrid",
+        {  place: "Spain",
             name: "Jinwoo's jog at Fiestas of San Fermin",
             locations:['Sorolla Museum', 'Le Patrón','Casa Lucas'],
             image: "http://www.telegraph.co.uk/content/dam/men/2016/07/07/GettyImages-479854_3392225b-large_trans_NvBQzQNjv4BqpJliwavx4coWFCaEkEsb3kvxIt-lGGWCWqwLa_RXJU8.jpg"
