@@ -9,6 +9,7 @@ export default {
     ITINERARY_SELECTED: 'itinerary_selected',
     SIGN_UP: 'sign-up',
     SIGN_IN: 'sign-in',
-    ERROR: 'error'
+    ERROR: 'error',
+    GET_DRAFTS: 'get_drafts'
 
 }
