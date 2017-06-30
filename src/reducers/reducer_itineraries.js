@@ -3,20 +3,20 @@ import saved from '../saved_data';
 
 const DEFAULT_STATE = {
     list: [
+        {  place: "Los Angeles",
+            name:"LA TRIP",
+            locations:['Venice Beach', 'LACMA','Rose Café'],
+            image: "http://es.discoverlosangeles.com/sites/default/files/styles/article_section/public/media/Activities/venice-beach-sign-es.jpg?itok=BzdOFdTU"
+        },
         {  place: "Madrid",
-            name:"Museo del Prado",
-            locations:['restaurant1', 'museum1','park1'],
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg/1920px-Museo_del_Prado_2016_%2825185969599%29.jpg"
+            name:  "Tapas All Day",
+            locations:['Mercado San Miguel', 'Retiro Park','Royal Palace of Madrid (Palacio Real)'],
+            image: "https://i2.wp.com/farm6.staticflickr.com/5686/22238573266_32e6fc7c68_o.jpg?resize=728%2C485&ssl=1"
         },
-        {  place: "Spain",
-            name:  "Palacio Real",
-            locations:['restaurant2', 'museum2','park2'],
-            image: "https://www.esmadrid.com/sites/default/files/styles/content_type_full/public/recursosturisticos/infoturistica/PalacioReal_1404213219.138.jpg?itok=RCXQXsxQ"
-        },
-        {  place: "Europe",
-            name: "Museo Thyssen-Bornemisza",
-            locations:['restaurant3', 'museum3','park3'],
-            image: "https://afrodita-production.s3.amazonaws.com/images/thyssen-museo-madrid-290716.original.jpg"
+        {  place: "Florence",
+            name: "Find the best gelato spot",
+            locations:['Duomo', 'Piazzale Michelangelo','Gelateria Dei Neri'],
+            image: "http://media.cntraveler.com/photos/57719b2a4a3399cb31f9da7a/master/pass/florence-01-duomo-GettyImages-504655313.jpg"
         }
     ],
     active: null
