@@ -13,11 +13,8 @@ import Publish from './imgs/heart.png';
 import Create from './imgs/pencil.png';
 import DraftPage from './draft';
 
-
-
 class Home extends Component{
   render() {
-      console.log ('Data is:', Data);
         return (
             <div>
                 <div className="jumbotron profile-hero">

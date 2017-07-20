@@ -5,14 +5,9 @@ const BASE_URL = 'https://www.triposo.com/api/v2/poi.json?location_id=';
 const END_URL = '&count=40&fields=all&tag_labels=';
 const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
-// const ROOT_URL = 'http://localhost:8888/travel_final_project/prototypes/phpFileStructureProto/api.php?action=';
 const ROOT_URL = 'https://thawing-beyond-11730.herokuapp.com/itin';
 
 const LOGIN_URL = 'http://localhost:8888/travel_final_project/prototypes/facebookLogin/fb_login_data/fb_user_info.php';
-
-const phpCall = axios.create('', {
-    headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': 'http://localhost:3000'}
-});
 
 export function fetchPlaces(city, query) {
     const request = axios.get(`${BASE_URL}${city}${END_URL}${query}`, {
@@ -67,7 +62,7 @@ export function itineraryClose(){
 }
 
 export function addPlace(place) {
-    const request = axios.patch(`${ROOT_URL}/59652a8f8fecca0011c95758`, place).then((resp) => console.log(resp));
+    const request = axios.patch(`${ROOT_URL}/59711c014adbf400115f2901`, place).then((resp) => console.log(resp));
     
     return{
         type: actions.ADD_PLACE,
@@ -76,8 +71,7 @@ export function addPlace(place) {
 }
 
 export function removePlace(place) {
-    const request = axios.patch(`${ROOT_URL}/item/59652a8f8fecca0011c95758`, place)
-    // .then((resp) => console.log('the resp from action', resp));
+    const request = axios.patch(`${ROOT_URL}/item/59711c014adbf400115f2901`, place)
 
     return{
         type: actions.DELETE_PLACE,
@@ -90,6 +84,29 @@ export function viewCurrentDraft(id) {
     
     return{
         type: actions.VIEW_CURRENT_DRAFT,
+        payload: request
+    }
+}
+
+export function editTitleTrue() {
+    return{
+        type: actions.EDIT_TITLE_TRUE,
+        payload: true
+    }
+}
+
+export function editTitleFalse() {
+    return{
+        type: actions.EDIT_TITLE_FALSE,
+        payload: false
+    }
+}
+
+export function editTitleText(val) {
+    const request = axios.patch(`${ROOT_URL}/title/59711c014adbf400115f2901`, val);
+
+    return{
+        type: actions.EDIT_TITLE,
         payload: request
     }
 }
