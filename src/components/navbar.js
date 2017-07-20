@@ -25,7 +25,7 @@ class Navbar extends Component {
 
     render() {  
         let className = this.state.shiftIn ? 'hidden-sideNav visible' : 'hidden-sideNav';
-        console.log(this.props)
+        console.log('from navbar', this.props)
         return (
             <div className="nav-container">
                 <nav className="navbar fixed-top navbar-toggleable-md navbar-inverse bg-default">

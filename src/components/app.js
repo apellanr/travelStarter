@@ -39,10 +39,16 @@ const nav_links = [
     }
 ];
 
+function navbarComp() {
+    return(
+        <Navbar links={nav_links} brand="travelStarter"/> 
+    )
+}
+
 const App = () => (
     <div>
-        <Navbar links={nav_links} brand="travelStarter"/>
         <div>
+            <Route component={navbarComp} />
             <Route exact path="/" component={Splash} />
             <Route path="/home" component={Home} />
             <Route path='/login' component={LoginPage} />
