@@ -4,14 +4,10 @@ import { addPlace } from '../actions';
 
 class Card extends Component {
     handleClick() {
-        const place = {
-            //userId: 1,
-            activity_id: 2,
-            itinID: 1,
-            tag_label: this.props.tag_label,
-            data: this.props.info
-        }
-        console.log(place);
+        const place = {data: {
+            userId: 1,
+            place: this.props.info
+        }}
         this.props.addPlace(place);
     }
     render() {

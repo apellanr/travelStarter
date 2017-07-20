@@ -66,10 +66,20 @@ export function itineraryClose(){
     }
 }
 
-export function addPlace(val) {
-    const request = axios.patch(`${ROOT_URL}/59652a8f8fecca0011c95758`).then((resp) => console.log(resp));
+export function addPlace(place) {
+    const request = axios.patch(`${ROOT_URL}/59652a8f8fecca0011c95758`, place).then((resp) => console.log(resp));
+    
     return{
         type: actions.ADD_PLACE,
+        payload: request
+    }
+}
+
+export function viewCurrentDraft(id) {
+    const request = axios.get(`${ROOT_URL}/${id}`);
+    
+    return{
+        type: actions.VIEW_CURRENT_DRAFT,
         payload: request
     }
 }

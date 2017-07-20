@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import data from '../data';
+import { viewCurrentDraft } from '../actions';
 
 class BuildPage extends Component {
+    componentDidMount() {
+        this.props.viewCurrentDraft('59652a8f8fecca0011c95758');
+    };
+
     list() {
-        return data.recommendations.map((place, index) => {
+        if(!this.props.currentDraft) {
+            return(
+                <div>
+                    Loading...
+                </div>
+            )
+        }
+
+        return this.props.currentDraft.itin.places.map((place, index) => {
             return(
                 <div className="card" key={index}>
                     <div className="card-header"><h4>{place.name}</h4></div>
@@ -19,16 +32,21 @@ class BuildPage extends Component {
     }
 
     render() {
-        console.log(data);
         return(
             <div>
                 <h2 className="text-center">Added Items</h2>
                 <div>
-                    {this.list()}
+                     {this.list()} 
                 </div>
             </div>
         )
     }
 }
 
-export default connect(null)(BuildPage);
+function mapStateToProps(state) {
+    return{
+        currentDraft: state.currentDraft.currentDraft
+    }
+}
+
+export default connect(mapStateToProps, { viewCurrentDraft })(BuildPage);
