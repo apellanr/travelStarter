@@ -18,11 +18,12 @@ class BuildPage extends Component {
         }
 
         return this.props.currentDraft.itin.places.map((place, index) => {
+            const { value } = place.properties[1];
             return(
                 <div className="card" key={index}>
                     <div className="card-header"><h4>{place.name}</h4></div>
                 <div className="card-block">
-                    <h6 className="card-subtitle mb-2 text-muted">Address</h6>
+                    <h6 className="card-subtitle mb-2 text-muted">{ value }</h6>
                     <p className="card-text">{place.snippet}</p>
                     <button className="btn btn-danger">Remove</button>
                 </div>
