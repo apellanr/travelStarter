@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 import data from '../data';
-import { viewCurrentDraft, removePlace } from '../actions';
+import { viewCurrentDraft, removePlace, editTitleTrue, editTitleFalse, editTitleText } from '../actions';
 
 class BuildPage extends Component {
     componentDidMount() {
-        this.props.viewCurrentDraft('59652a8f8fecca0011c95758');
+        this.props.viewCurrentDraft('59711c014adbf400115f2901');
     };
 
     handleDelete(place) {
-        this.props.removePlace(place).then(() => this.props.viewCurrentDraft('59652a8f8fecca0011c95758'));
+        this.props.removePlace(place).then(() => this.props.viewCurrentDraft('59711c014adbf400115f2901'));
     };
 
     list() {
         if(!this.props.currentDraft) {
             return(
-                <div>
-                    Loading...
-                </div>
+                <div>Loading...</div>
             )
         }
 
@@ -35,10 +34,46 @@ class BuildPage extends Component {
         })
     }
 
+    handleTrueToggle() {
+        this.props.editTitleTrue();
+    }
+
+    handleEdit(val) {
+        this.props.editTitleText(val).then(() => this.props.editTitleFalse()).then(() => this.props.viewCurrentDraft('59711c014adbf400115f2901'))
+    }
+
+    renderField(field) {
+        return(
+            <div className='form-group'>
+                <input
+                    type='text'
+                    className='form-control form-control-danger'
+                    {...field.input}
+                />
+            </div>
+        )
+    }
+
+    title() {
+        const { handleSubmit } = this.props;
+
+        if(!this.props.currentDraft) {
+            return <h2 className='text-center'>Loading...</h2>
+        }
+        console.log('edittitle', this.props.editTitle.editTitle)
+        return(
+            <div>
+                 {!this.props.editTitle.editTitle 
+                    ? <h2 className="text-center">{this.props.currentDraft.itin.name}<button className='btn btn-outline-warning' onClick={() => this.handleTrueToggle()}>Edit</button></h2> 
+                    : <div><Field name='name' component={this.renderField}/><button className='btn btn-outline-success' onClick={handleSubmit((val) => this.handleEdit(val))}>Save</button><button className='btn btn-outline-default' onClick={() => this.props.editTitleFalse()}>Cancel</button></div>} 
+            </div>
+        )
+    }
+
     render() {
         return(
             <div>
-                <h2 className="text-center">Added Items</h2>
+                {this.title()}
                 <div>
                      {this.list()} 
                 </div>
@@ -49,8 +84,17 @@ class BuildPage extends Component {
 
 function mapStateToProps(state) {
     return{
-        currentDraft: state.currentDraft.currentDraft
+        currentDraft: state.currentDraft.currentDraft,
+        editTitle: state.editTitle,
+        initialValues: !state.currentDraft.currentDraft ? {} : {
+            name: state.currentDraft.currentDraft.itin.name
+        }
     }
 }
 
-export default connect(mapStateToProps, { viewCurrentDraft, removePlace })(BuildPage);
+BuildPage = reduxForm({
+    form: 'edit_title_form',
+    enableReinitialize: true
+})(BuildPage);
+
+export default connect(mapStateToProps, { viewCurrentDraft, removePlace, editTitleTrue, editTitleFalse, editTitleText })(BuildPage);
