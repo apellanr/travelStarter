@@ -16,7 +16,7 @@ import DraftPage from './draft';
 
 
 class Home extends Component{
-  render() {
+    render() {
       console.log ('Data is:', Data);
         return (
             <div>

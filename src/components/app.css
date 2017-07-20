@@ -76,6 +76,11 @@ a {
     margin-bottom: 10px;
 }
 
+/* SPLASH PAGE */
+.hide {
+    display: none;
+}
+
 /* BUILD PAGE */
 .buildsearchpage {
     margin-bottom: 53px;
@@ -129,6 +134,10 @@ a {
     margin-bottom: 50px;
 }
 
+.discover-header {
+    margin-top: -90px;
+}
+
 .city-img {
     margin-bottom: 10px;
     height: 35vh;
@@ -166,8 +175,10 @@ a {
 
 .city-jumbo {
     margin-top: 0;
-    height: 100vh;
+    height: 92vh;
     border-radius: 0;
+    background: url('imgs/los_angeles.jpg');
+    background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;

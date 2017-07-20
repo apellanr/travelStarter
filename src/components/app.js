@@ -13,16 +13,21 @@ import BuildSearchCitySelect from './buildsearchcityselect';
 import LoginPage from './login_page';
 import Signup from './signup';
 import DraftPage from './draft';
+import Splash from './splash';
 
 
 const nav_links = [
     {
         title: 'Home',
-        path: '/'
+        path: '/home'
     },
     {
         title: 'Destinations',
         path:'/destinations'
+    },
+    {
+        title: 'Discover',
+        path:'/discover'
     },
     {
         title: 'Itinerary',
@@ -38,7 +43,8 @@ const App = () => (
     <div>
         <Navbar links={nav_links} brand="travelStarter"/>
         <div>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Splash} />
+            <Route path="/home" component={Home} />
             <Route path='/login' component={LoginPage} />
             <Route path='/signup' component={Signup} />
             <Route path="/buildsearch/cityselect" component={BuildSearchCitySelect} />
