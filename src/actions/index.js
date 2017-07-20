@@ -5,7 +5,8 @@ const BASE_URL = 'https://www.triposo.com/api/v2/poi.json?location_id=';
 const END_URL = '&count=40&fields=all&tag_labels=';
 const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
-const ROOT_URL = 'http://localhost:8888/travel_final_project/prototypes/phpFileStructureProto/api.php?action=';
+// const ROOT_URL = 'http://localhost:8888/travel_final_project/prototypes/phpFileStructureProto/api.php?action=';
+const ROOT_URL = 'https://thawing-beyond-11730.herokuapp.com/itin';
 
 const LOGIN_URL = 'http://localhost:8888/travel_final_project/prototypes/facebookLogin/fb_login_data/fb_user_info.php';
 
@@ -65,13 +66,20 @@ export function itineraryClose(){
     }
 }
 
-export function addPlace(val) {
-    const request = axios.post('http://localhost:8888/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=addToItin', {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        data: val
-    }).then((resp) => console.log(resp));
+export function addPlace(place) {
+    const request = axios.patch(`${ROOT_URL}/59652a8f8fecca0011c95758`, place).then((resp) => console.log(resp));
+    
     return{
         type: actions.ADD_PLACE,
+        payload: request
+    }
+}
+
+export function viewCurrentDraft(id) {
+    const request = axios.get(`${ROOT_URL}/${id}`);
+    
+    return{
+        type: actions.VIEW_CURRENT_DRAFT,
         payload: request
     }
 }

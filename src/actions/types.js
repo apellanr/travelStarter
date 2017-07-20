@@ -10,6 +10,6 @@ export default {
     SIGN_UP: 'sign-up',
     SIGN_IN: 'sign-in',
     ERROR: 'error',
-    GET_DRAFTS: 'get_drafts'
-
+    GET_DRAFTS: 'get_drafts',
+    VIEW_CURRENT_DRAFT: 'view_current_draft'
 }
