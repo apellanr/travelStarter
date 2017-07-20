@@ -3,10 +3,10 @@ import Mask from './maskImg';
 import ItineraryList from '../containers/itinerary_list';
 import Footer from './footer';
 
-export default ()=>{
+export default (props)=>{
     return(
         <div className="discover-container">
-            <Mask header="featured trips" lead="discover your next adventure"/>
+            <Mask header="featured trips" lead="discover your next adventure" location={props.match.url}/>
             <div>
               <ItineraryList/>
               <Footer />

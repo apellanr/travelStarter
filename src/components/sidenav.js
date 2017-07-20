@@ -8,8 +8,9 @@ const SideNav = (props) => {
             <img className="img-fluid sideNav-img"src={Logo} alt="Logo"/>
             <hr />
             <div className="container sideNav-links" onClick={ () => props.closeNav()}>
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
                 <Link to="/buildsearch/cityselect">Destinations</Link>
+                <Link to="/discover">Discover</Link>
                 <Link to="/my_itineraries">My Trips</Link>
                 <Link to="#">About</Link>
             </div>
