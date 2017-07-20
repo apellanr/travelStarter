@@ -75,6 +75,16 @@ export function addPlace(place) {
     }
 }
 
+export function removePlace(place) {
+    const request = axios.patch(`${ROOT_URL}/item/59652a8f8fecca0011c95758`, place)
+    // .then((resp) => console.log('the resp from action', resp));
+
+    return{
+        type: actions.DELETE_PLACE,
+        payload: request
+    }
+}
+
 export function viewCurrentDraft(id) {
     const request = axios.get(`${ROOT_URL}/${id}`);
     

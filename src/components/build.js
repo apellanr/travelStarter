@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import data from '../data';
-import { viewCurrentDraft } from '../actions';
+import { viewCurrentDraft, removePlace } from '../actions';
 
 class BuildPage extends Component {
     componentDidMount() {
         this.props.viewCurrentDraft('59652a8f8fecca0011c95758');
+    };
+
+    handleDelete(place) {
+        this.props.removePlace(place).then(() => this.props.viewCurrentDraft('59652a8f8fecca0011c95758'));
     };
 
     list() {
@@ -24,7 +28,7 @@ class BuildPage extends Component {
                 <div className="card-block">
                     <h6 className="card-subtitle mb-2 text-muted">Address</h6>
                     <p className="card-text">{place.snippet}</p>
-                    <button className="btn btn-danger">Remove</button>
+                    <button className="btn btn-danger" onClick={() => this.handleDelete(place)}>Remove</button>
                 </div>
                 </div>
             )
@@ -49,4 +53,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { viewCurrentDraft })(BuildPage);
+export default connect(mapStateToProps, { viewCurrentDraft, removePlace })(BuildPage);
