@@ -12,5 +12,9 @@ export default {
     SIGN_IN: 'sign-in',
     ERROR: 'error',
     GET_DRAFTS: 'get_drafts',
-    VIEW_CURRENT_DRAFT: 'view_current_draft'
+    VIEW_CURRENT_DRAFT: 'view_current_draft',
+    EDIT_TITLE_TRUE: 'edit_title_true',
+    EDIT_TITLE_FALSE: 'edit_title_false',
+    EDIT_TITLE: 'edit_title'
+
 }

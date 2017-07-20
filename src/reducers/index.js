@@ -5,7 +5,7 @@ import searchReducer from './search_reducer';
 import ItinerariesReducer from './reducer_itineraries';
 import authReducer from './auth_reducer';
 import currentDraftReducer from './draft_reducer';
-
+import editTitleReducer from './edit_reducer';
 
 const rootReducer = combineReducers({
     form: formReducer,
@@ -13,8 +13,8 @@ const rootReducer = combineReducers({
     cityplaces: searchReducer,
     currentPage: searchReducer,
     auth: authReducer,
-    currentDraft: currentDraftReducer
-
+    currentDraft: currentDraftReducer,
+    editTitle: editTitleReducer
 });
 
 export default rootReducer;
