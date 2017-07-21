@@ -15,6 +15,6 @@ export default {
     VIEW_CURRENT_DRAFT: 'view_current_draft',
     EDIT_TITLE_TRUE: 'edit_title_true',
     EDIT_TITLE_FALSE: 'edit_title_false',
-    EDIT_TITLE: 'edit_title'
-
+    EDIT_TITLE: 'edit_title',
+    CREATE_ITIN: 'create_itin'
 }

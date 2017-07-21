@@ -99,7 +99,7 @@ class SearchList extends Component {
     }
 
     render() {
-        console.log(this.props.currentSearchPage);
+        // console.log(this.props.currentSearchPage);
         const addressArray = this.props.match.url.split('/');
         let lastPage = null;
         if(!this.props.poi) {
@@ -132,7 +132,7 @@ class SearchList extends Component {
 function mapStateToProps(state) {
     return{
         poi: state.cityplaces.poi.data,
-        currentSearchPage: state.currentPage.page
+        currentSearchPage: state.currentPage.page,
     }
 }
 

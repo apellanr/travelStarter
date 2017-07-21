@@ -6,6 +6,7 @@ import ItinerariesReducer from './reducer_itineraries';
 import authReducer from './auth_reducer';
 import currentDraftReducer from './draft_reducer';
 import editTitleReducer from './edit_reducer';
+import createItin from './create_itin_reducer';
 
 const rootReducer = combineReducers({
     form: formReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     currentPage: searchReducer,
     auth: authReducer,
     currentDraft: currentDraftReducer,
-    editTitle: editTitleReducer
+    editTitle: editTitleReducer,
+    itinId: createItin
 });
 
 export default rootReducer;

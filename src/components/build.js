@@ -6,11 +6,11 @@ import { viewCurrentDraft, removePlace, editTitleTrue, editTitleFalse, editTitle
 
 class BuildPage extends Component {
     componentDidMount() {
-        this.props.viewCurrentDraft('59711c014adbf400115f2901');
+        this.props.viewCurrentDraft(this.props.itinId);
     };
 
     handleDelete(place) {
-        this.props.removePlace(place).then(() => this.props.viewCurrentDraft('59711c014adbf400115f2901'));
+        this.props.removePlace(place, this.props.itinId).then(() => this.props.viewCurrentDraft(this.props.itinId));
     };
 
     list() {
@@ -40,7 +40,7 @@ class BuildPage extends Component {
     }
 
     handleEdit(val) {
-        this.props.editTitleText(val).then(() => this.props.editTitleFalse()).then(() => this.props.viewCurrentDraft('59711c014adbf400115f2901'))
+        this.props.editTitleText(val, this.props.itinId).then(() => this.props.editTitleFalse()).then(() => this.props.viewCurrentDraft(this.props.itinId))
     }
 
     renderField(field) {
@@ -61,7 +61,7 @@ class BuildPage extends Component {
         if(!this.props.currentDraft) {
             return <h2 className='text-center'>Loading...</h2>
         }
-        console.log('edittitle', this.props.editTitle.editTitle)
+
         return(
             <div>
                  {!this.props.editTitle.editTitle 
@@ -87,6 +87,7 @@ function mapStateToProps(state) {
     return{
         currentDraft: state.currentDraft.currentDraft,
         editTitle: state.editTitle,
+        itinId: state.itinId.itinId.data._id,
         initialValues: !state.currentDraft.currentDraft ? {} : {
             name: state.currentDraft.currentDraft.itin.name
         }
