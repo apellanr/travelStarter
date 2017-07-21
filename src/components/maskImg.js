@@ -9,7 +9,7 @@ export default props => {
 
     const { header, location } = props;
     return (
-        <div className='jumbotron city-jumbo'>
+        <div className={`jumbotron city-jumbo ${props.className}`}>
             <div className="jumbo-content">
                 <h1 className={location === '/discover' ? 'display-4 text-center discover-header' : 'display-4 text-center' }>{header}</h1>
                 <p className="lead">
