@@ -102,6 +102,10 @@ a {
     background-color: white;
 }
 
+.btn-primary {
+    color: white !important;
+}
+
 /* LOGIN PAGE // SIGNUP */
 .login-header {
     text-align: center;
