@@ -24,8 +24,7 @@ html, body {
 }
 
 .splash-brand {
-    font-size: 26px;
-    text-align: center;
+    font-size: 23px;
     color: white !important;
 }
 
@@ -181,7 +180,7 @@ a {
 
 .city-jumbo {
     margin-top: 0;
-    height: 92vh;
+    height: 94vh;
     border-radius: 0;
     background: url('imgs/los_angeles.jpg');
     background-position: center center;
@@ -328,6 +327,10 @@ hr {
         font-size: 60px;
         margin-top: 60px;
     }
+     .splash-img {
+         background: url('imgs/firenze.jpg');
+         background-position: bottom center;
+    } 
 }
 
 @media (min-width: 470px) {
