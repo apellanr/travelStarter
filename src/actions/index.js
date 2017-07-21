@@ -61,8 +61,8 @@ export function itineraryClose(){
     }
 }
 
-export function addPlace(place) {
-    const request = axios.patch(`${ROOT_URL}/59711c014adbf400115f2901`, place).then((resp) => console.log(resp));
+export function addPlace(place, id) {
+    const request = axios.patch(`${ROOT_URL}/${id}`, place).then((resp) => console.log(resp));
     
     return{
         type: actions.ADD_PLACE,
@@ -70,8 +70,8 @@ export function addPlace(place) {
     }
 }
 
-export function removePlace(place) {
-    const request = axios.patch(`${ROOT_URL}/item/59711c014adbf400115f2901`, place)
+export function removePlace(place, id) {
+    const request = axios.patch(`${ROOT_URL}/item/${id}`, place)
 
     return{
         type: actions.DELETE_PLACE,
@@ -102,12 +102,24 @@ export function editTitleFalse() {
     }
 }
 
-export function editTitleText(val) {
-    const request = axios.patch(`${ROOT_URL}/title/59711c014adbf400115f2901`, val);
+export function editTitleText(val, id) {
+    const request = axios.patch(`${ROOT_URL}/title/${id}`, val);
 
     return{
         type: actions.EDIT_TITLE,
         payload: request
+    }
+}
+
+export function createNewItin() {
+    return(dispatch) => {
+        const user = { userId: 1};
+        const request = axios.post(`${ROOT_URL}/create`, user).then((resp) => {
+            dispatch({
+                type: actions.CREATE_ITIN,
+                payload: resp
+            })
+        })
     }
 }
 

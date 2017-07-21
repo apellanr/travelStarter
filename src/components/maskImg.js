@@ -1,5 +1,7 @@
 import React, { Component }from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { createNewItin } from '../actions';
 
 // let style = {
 //     'backgroundImage' : 'url(https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg)',
@@ -16,6 +18,8 @@ export default props => {
                     <Link className={location === '/discover' ? 'hide' : 'btn btn-primary btn-lg'} to="/home" role="button">Get Started</Link>
                 </p>
             </div>
-        </div>
-    )
+        )
+    }
 }
+
+export default connect(null, { createNewItin })(MaskImg)
