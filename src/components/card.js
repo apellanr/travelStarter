@@ -8,7 +8,7 @@ class Card extends Component {
             userId: 1,
             place: this.props.info
         }}
-        this.props.addPlace(place);
+        this.props.addPlace(place, this.props.itinId);
     }
     render() {
     return (
@@ -27,4 +27,10 @@ class Card extends Component {
     }
 }
 
-export default connect(null, { addPlace })(Card);
+function mapStateToProps(state) {
+    return{
+        itinId: state.itinId.itinId.data._id
+    }
+}
+
+export default connect(mapStateToProps, { addPlace })(Card);
