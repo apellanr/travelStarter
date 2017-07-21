@@ -48,7 +48,7 @@ function navbarComp() {
 const App = () => (
     <div>
         <div>
-            <Route component={navbarComp} />
+            <Route path="/:anywhere" component={navbarComp} />
             <Route exact path="/" component={Splash} />
             <Route path="/home" component={Home} />
             <Route path='/login' component={LoginPage} />

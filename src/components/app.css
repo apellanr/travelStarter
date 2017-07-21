@@ -23,6 +23,12 @@ html, body {
     cursor: pointer;
 }
 
+.splash-brand {
+    font-size: 26px;
+    text-align: center;
+    color: white !important;
+}
+
 .menu-icon {
     font-size: 30px;
 }
