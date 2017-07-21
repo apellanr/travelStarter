@@ -16,7 +16,9 @@ const rootReducer = combineReducers({
     auth: authReducer,
     currentDraft: currentDraftReducer,
     editTitle: editTitleReducer,
-    itinId: createItin
+    itinId: createItin,
+    active: ItinerariesReducer,
+    allItins: ItinerariesReducer
 });
 
 export default rootReducer;

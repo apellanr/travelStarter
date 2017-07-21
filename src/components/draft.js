@@ -10,7 +10,15 @@ class ItineraryList extends Component {
         this.props.getDrafts();
     }
     renderList(){
-        return this.props.itineraries.map((itinerary)=>{
+        if(!this.props.itineraries) {
+            return(
+                <div></div>
+            )
+        }
+        
+        const { itins } = this.props.itineraries;
+
+        return itins.map((itinerary)=>{
             if(this.props.active && itinerary.name === this.props.active.name ){
                 return (
                     <ItineraryDetails key={itinerary.name} itinerary={itinerary}/>
@@ -18,9 +26,9 @@ class ItineraryList extends Component {
             }
             return(
                 <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name} >
-                    <img className="card-img-top" src={itinerary.image} alt="Card image cap"/>
+                    <img className="card-img-top" src={itinerary.places[0].images[0].source_url} alt="Card image cap"/>
                     <div className="card-block">
-                        <h4 className="card-title">{itinerary.place}</h4>
+                        <h4 className="card-title">{itinerary.city}</h4>
                         <p className="card-text">{itinerary.name}</p>
                         <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">select itinerary</a>
                     </div>
@@ -32,6 +40,7 @@ class ItineraryList extends Component {
         console.log('Active:', this.props);
         return(
             <div className="card-grid">
+                <h1>My Drafts</h1>
                 {this.renderList()}
             </div>
         )
