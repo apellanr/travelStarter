@@ -5,7 +5,7 @@
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 * {
@@ -13,7 +13,7 @@ html, body {
     box-sizing: border-box;
 }
 
-/* NAVBAR COMPONENT */
+/*--- NAVBAR COMPONENT ---*/
 .navbar, .footer {
    background-color: #26628A;
 }
@@ -32,7 +32,7 @@ html, body {
     font-size: 30px;
 }
 
-/* ICON COMPONENT */
+/*--- ICON ---*/
 .icon-text:hover {
     color: #FDB927;
     text-decoration:none;
@@ -70,24 +70,8 @@ a {
     color: #333;
 }
 
-.filter-btns {
-    font-size: 17px;
-}
 
-.filter-container {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    /* margin-bottom: 10px; */
-    padding: 20px;
-}
-
-/* SPLASH PAGE */
-.hide {
-    display: none;
-}
-
-/* BUILD PAGE */
+/*--- BUILD PAGE ---*/
 .buildsearchpage {
     margin-bottom: 53px;
 }
@@ -107,7 +91,19 @@ a {
     color: white !important;
 }
 
-/* LOGIN PAGE // SIGNUP */
+.filter-btns {
+     font-size: 17px; 
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* margin-bottom: 10px; */
+    padding: 20px;
+}
+
+/*--- LOGIN PAGE // SIGNUP ---*/
 .login-header {
     text-align: center;
     margin-top: 10px;
@@ -123,7 +119,7 @@ a {
     background-color: lightgray;
 }
 
-/* PROFILE HERO IMG // CONTENT */
+/*--- PROFILE HERO IMG // CONTENT ---*/
 .profile-hero {
     height: 40vh;
     border-radius: 0;
@@ -139,7 +135,7 @@ a {
     text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 }
 
-/* COMP CONTAINERS */
+/*--- CONTAINERS ---*/
 .discover-container {
     margin-bottom: 50px;
 }
@@ -150,7 +146,7 @@ a {
 
 .city-img {
     margin-bottom: 3px;
-    height: 37vh;
+    height: 38vh;
 }
 
 .la, .Los_Angeles {
@@ -165,7 +161,7 @@ a {
     background-repeat: no-repeat;
 }
 
-/* CARD COMPONENT */
+/*--- CARD COMPONENT ---*/
 .card-img-top {
     max-width: 100%;
     height: 200px;
@@ -212,7 +208,7 @@ a {
     font-family: 'Playfair Display', serif;
 }
 
-/* SIDENAV COMPONENT*/
+/*--- SIDENAV COMPONENT ---*/
 .hidden-sideNav {
     height: 100%;
     width: 290px;
@@ -256,9 +252,7 @@ a {
     color: rgb(25, 106, 229);
 }
 
-hr {
-    margin-top: -7px;
-}
+hr { margin-top: -7px }
 
 .sideNav-img {
     position: absolute;
@@ -268,7 +262,7 @@ hr {
     height: 36px;
 }
 
-/* CSS Loader */
+/*--- CSS Loader ---*/
 .spinner {
   width: 40px;
   height: 40px;
@@ -291,9 +285,7 @@ hr {
   animation: sk-bounce 2.0s infinite ease-in-out;
 }
 
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+.double-bounce2 { -webkit-animation-delay: -1.0s; animation-delay: -1.0s;
 }
 
 @-webkit-keyframes sk-bounce {
@@ -302,16 +294,11 @@ hr {
 }
 
 @keyframes sk-bounce {
-  0%, 100% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% { 
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
+  0%, 100% { transform: scale(0.0); -webkit-transform: scale(0.0);} 
+  50% { transform: scale(1.0); -webkit-transform: scale(1.0); }
 }
 
-/*       */
+/*--- MEDIA QUERIES --- */
 
 @media (min-width: 760px) { 
     .profile-hero {
