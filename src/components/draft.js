@@ -4,6 +4,7 @@ import {selectItinerary, getDrafts} from '../actions/index';
 import {bindActionCreators} from 'redux';
 import ItineraryDetails from '../containers/itinerary_detail';
 import DraftData from '../draftdata';
+import Footer from './footer';
 
 class ItineraryList extends Component {
     componentWillMount(){
@@ -31,9 +32,14 @@ class ItineraryList extends Component {
     render(){
         console.log('Active:', this.props);
         return(
-            <div className="card-grid">
-                {this.renderList()}
+            <div>
+                <h2 className="header-text text-center">Drafts</h2>
+                <div className="card-grid">
+                    {this.renderList()}
+                </div>
+                <Footer />
             </div>
+            
         )
     }
 }
@@ -44,6 +50,7 @@ function mapStateToProps(state){
         active: state.itineraries.active
     };
 }
+
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ selectItinerary, getDrafts}, dispatch)
 }

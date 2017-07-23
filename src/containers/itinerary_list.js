@@ -17,7 +17,7 @@ class ItineraryList extends Component {
                     <div className="card-block">
                         <h4 className="card-title">{itinerary.place}</h4>
                         <p className="card-text">{itinerary.name}</p>
-                        <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">Select Trip</a>
+                        <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">View Trip</a>
                     </div>
                 </div>
             );

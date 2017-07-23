@@ -6,7 +6,7 @@ import Footer from './footer';
 export default (props)=>{
     return(
         <div className="discover-container">
-            <Mask header="featured trips" lead="discover your next adventure" location={props.match.url}/>
+            <Mask header="featured trips" lead="discover your next adventure" className="published-trips" location={props.match.url}/>
             <div>
               <ItineraryList/>
               <Footer />

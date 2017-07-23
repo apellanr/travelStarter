@@ -1,6 +1,5 @@
 import React from 'react';
 import { citySelect } from './city_fxns';
-import Test from './imgs/map.jpg';
 
 const City = (props) => {
     return (

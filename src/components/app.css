@@ -144,6 +144,10 @@ a {
     margin-top: -90px;
 }
 
+.hide {
+    display: none;
+}
+
 .city-img {
     margin-bottom: 3px;
     height: 38vh;
@@ -191,6 +195,15 @@ a {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.published-trips {
+    background: url('imgs/moat.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 85vh;
 }
 
 .jumbo-content, .trip-name {
