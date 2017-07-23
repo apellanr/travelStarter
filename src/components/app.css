@@ -78,7 +78,8 @@ a {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    padding: 20px;
 }
 
 /* SPLASH PAGE */
@@ -148,8 +149,8 @@ a {
 }
 
 .city-img {
-    margin-bottom: 10px;
-    height: 35vh;
+    margin-bottom: 3px;
+    height: 37vh;
 }
 
 .la, .Los_Angeles {
@@ -173,6 +174,7 @@ a {
 .card-grid {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 50px;
 }
 
 .trip-block {
@@ -205,12 +207,8 @@ a {
     color: white;
 }
 
-.trip-card {
-    margin: 10px 0;
-}
-
 .header-text {
-    padding: 13px;
+    padding: 5px;
     font-family: 'Playfair Display', serif;
 }
 

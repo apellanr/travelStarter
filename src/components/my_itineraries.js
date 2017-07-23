@@ -4,6 +4,7 @@ import {selectItinerary, savedDrafts} from '../actions/index';
 import {bindActionCreators} from 'redux';
 import ItineraryDetails from '../containers/itinerary_detail';
 import DraftData from '../draftdata';
+import Footer from './footer';
 
 class ItineraryList extends Component {
     componentWillMount(){
@@ -22,7 +23,7 @@ class ItineraryList extends Component {
                     <div className="card-block">
                         <h4 className="card-title">{itinerary.place}</h4>
                         <p className="card-text">{itinerary.name}</p>
-                        <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">select itinerary</a>
+                        <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">View Trip</a>
                     </div>
                 </div>
             );
@@ -31,8 +32,12 @@ class ItineraryList extends Component {
     render(){
         console.log('Active:', this.props);
         return(
-            <div className="container">
-                {this.renderList()}
+            <div>
+                <h2 className="header-text text-center">My Trips</h2>
+                <div className="card-grid">
+                    {this.renderList()}
+                </div>
+                <Footer />
             </div>
         )
     }
