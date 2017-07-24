@@ -1,11 +1,11 @@
 #root {
-    margin-top: 53px;
-    height: 92vh;
+     margin-top: 53px; 
+     height: 92vh; 
 }
 
 html, body {
-    max-width: 100%;
-    /* overflow-x: hidden; */
+    /* max-width: 100vh; */
+     overflow-x: hidden; 
 }
 
 * {
@@ -59,6 +59,7 @@ html, body {
     justify-content: center;
     flex-direction: row;
     padding: 10px;
+    margin-top: -10px;
 }
 
 .ballicon {
@@ -141,7 +142,7 @@ a {
 }
 
 .discover-header {
-    margin-top: -90px;
+    margin-top: -30px;
 }
 
 .hide {
@@ -160,9 +161,16 @@ a {
 }
 
 .mad, .Madrid {
-    background: url("./imgs/madrid.jpg");
+    background: url("./imgs/city-madrid.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#splash-lead {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    padding: 7px;
 }
 
 /*--- CARD COMPONENT ---*/
