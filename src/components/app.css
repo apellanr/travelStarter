@@ -124,7 +124,7 @@ a {
 .profile-hero {
     height: 40vh;
     border-radius: 0;
-    background: url("./imgs/map.jpg");
+    background: url("./imgs/profile-hero.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -142,7 +142,7 @@ a {
 }
 
 .discover-header {
-    margin-top: -30px;
+    margin-top: 20px;
 }
 
 .hide {
@@ -155,7 +155,7 @@ a {
 }
 
 .la, .Los_Angeles {
-    background: url("./imgs/la.jpg");
+    background: url("./imgs/city-la.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -194,7 +194,7 @@ a {
 
 .city-jumbo {
     margin-top: 0;
-    height: 94vh;
+    height: 92vh;
     border-radius: 0;
     background: url('imgs/los_angeles.jpg');
     background-position: center center;
@@ -337,9 +337,10 @@ hr { margin-top: -7px }
         font-size: 60px;
         margin-top: 60px;
     }
-     .splash-img {
+     .splash-img, .published-trips {
          background: url('imgs/firenze.jpg');
          background-position: bottom center;
+         height: 95vh;
     } 
 }
 
@@ -355,4 +356,25 @@ hr { margin-top: -7px }
         flex-wrap: wrap;
         align-items: center;
     }
+}
+
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
 }
