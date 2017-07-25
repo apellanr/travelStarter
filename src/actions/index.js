@@ -67,7 +67,7 @@ export function itineraryClose(){
 }
 
 export function addPlace(place, id) {
-    const request = axios.patch(`${ROOT_URL}/${id}`, place).then((resp) => console.log(resp));
+    const request = axios.patch(`${ROOT_URL}/${id}`, place);
     
     return{
         type: actions.ADD_PLACE,

@@ -40,9 +40,7 @@ class BuildSearch extends Component {
     }
     
     render() {
-        console.log('buildsearch redux:', this.props.currentSearchPage)
         const addressArray = this.props.match.url.split('/');
-        console.log('params', this.props);
 
         return(
             <div className='buildsearchpage'>
