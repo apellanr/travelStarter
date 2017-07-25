@@ -9,11 +9,6 @@ import { fetchPlaces, currentPage, clearPlaces } from '../actions';
 import SearchList from './searchlist';
 
 class SearchPage extends Component {    
-    // componentDidMount() {
-    //     console.log('params', this.props);
-    //     this.props.fetchPlaces(this.props.match.params.id);
-    // }
-
     componentDidUpdate(prevProps) {
         if (this.props.location !== prevProps.location) {
         window.scrollTo(0, 0)
@@ -25,10 +20,7 @@ class SearchPage extends Component {
     }
 
     handleClick(query) {
-        //this.props.poi = null;
         this.props.clearPlaces();
-        console.log('searchhandleclick');
-        //this.props.fetchPlaces(this.props.match.params.id, query);
         this.props.currentPage(1);
     }
 

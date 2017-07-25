@@ -5,11 +5,13 @@ import {bindActionCreators} from 'redux';
 import ItineraryDetails from '../containers/itinerary_detail';
 import DraftData from '../draftdata';
 import Footer from './footer';
+import noImg from '../components/imgs/no_image_thumb.gif';
 
 class ItineraryList extends Component {
     componentWillMount(){
         this.props.getDrafts();
     }
+
     renderList(){
         if(!this.props.itineraries) {
             return(
@@ -25,20 +27,24 @@ class ItineraryList extends Component {
                     <ItineraryDetails key={itinerary.name} itinerary={itinerary}/>
                 )
             }
+
+            const image = !itinerary.places[0] ? noImg : itinerary.places[0].images[0].source_url
+
             return(
-                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name} >
-                    <img className="card-img-top" src={itinerary.places[0].images[0].source_url} alt="Card image cap"/>
+                <div className="card" style={{width: 20 + 'rem'}} key={itinerary._id} >
+                    <img className="card-img-top" src={image} alt="Card image cap"/>
                     <div className="card-block">
                         <h4 className="card-title">{itinerary.city}</h4>
                         <p className="card-text">{itinerary.name}</p>
-                        <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">select itinerary</a>
+                        {!itinerary.places[0] 
+                            ? <button className='btn btn-danger disabled'>Empty Draft</button> 
+                            : <a onClick = {()=> this.props.selectItinerary(itinerary)} className="btn btn-primary">select itinerary</a>} 
                     </div>
                 </div>
             );
         });
     }
     render(){
-        console.log('Active:', this.props);
         return(
             <div>
                 <h2 className="header-text text-center">Drafts</h2>
@@ -52,7 +58,6 @@ class ItineraryList extends Component {
     }
 }
 function mapStateToProps(state){
-    console.log('The state is:', state);
     return{
         itineraries: state.itineraries.list,
         active: state.itineraries.active

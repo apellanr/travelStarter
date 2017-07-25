@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import ItineraryDetails from '../containers/itinerary_detail';
 import DraftData from '../draftdata';
 import Footer from './footer';
+import noImg from '../components/imgs/no_image_thumb.gif';
 
 class ItineraryList extends Component {
     componentWillMount(){
@@ -25,9 +26,12 @@ class ItineraryList extends Component {
                     <ItineraryDetails key={itinerary.name} itinerary={itinerary}/>
                 )
             }
+
+            const image = !itinerary.places[0] ? noImg : itinerary.places[0].images[0].source_url
+
             return(
-                <div className="card" style={{width: 20 + 'rem'}} key={itinerary.name} >
-                    <img className="card-img-top" src={itinerary.places[0].images[0].source_url} alt="Card image cap"/>
+                <div className="card" style={{width: 20 + 'rem'}} key={itinerary._id} >
+                    <img className="card-img-top" src={image} alt="Card image cap"/>
                     <div className="card-block">
                         <h4 className="card-title">{itinerary.city}</h4>
                         <p className="card-text">{itinerary.name}</p>

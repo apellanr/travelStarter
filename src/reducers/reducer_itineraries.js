@@ -6,7 +6,6 @@ const DEFAULT_STATE = {};
 export default function(state = DEFAULT_STATE, action) {
     switch(action.type){
         case 'ALL_ITINERARIES':
-            console.log('from reducer', action.payload.data)
             return {...state, allItins: action.payload.data}
         case 'ITINERARY_SELECTED':
             return {...state, active: action.payload};
