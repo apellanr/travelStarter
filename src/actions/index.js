@@ -38,11 +38,16 @@ export function currentPage(arr) {
 }
 
 export function fetchItineraries() {
-    // const request = axios.get('http://localhost:8888/C4.17_travel_starter/prototypes/phpFileStructureProto/api.php?action=readItinerary').then((resp) => console.log('resp', resp));
-    // console.log('action', request);
-    return {
-        type: 'FETCH_ITINERARIES',
-        payload: request
+    return (dispatch) => {
+        const user = {
+            userId: 1
+        };
+        const request = axios.get(`${ROOT_URL}/all`).then((resp) => {
+            dispatch({
+                type: 'ALL_ITINERARIES',
+                payload: resp
+            })
+        });
     }
 }
 
@@ -201,13 +206,29 @@ function sendError(error){
 }
 
 export function getDrafts(){
-    return{
-        type: 'GET_DRAFTS',
+    return (dispatch) => {
+        const user = {
+            userId: 1
+        };
+        const request = axios.post(`${ROOT_URL}/mine/drafts`, user).then((resp) => {
+            dispatch({
+                type: 'SAVED_DRAFTS',
+                payload: resp
+            })
+        });
     }
 }
 
 export function savedDrafts(){
-    return{
-        type: 'SAVED_DRAFTS',
+    return (dispatch) => {
+        const user = {
+            userId: 1
+        };
+        const request = axios.post(`${ROOT_URL}/mine/done`, user).then((resp) => {
+            dispatch({
+                type: 'SAVED_DRAFTS',
+                payload: resp
+            })
+        });
     }
 }
