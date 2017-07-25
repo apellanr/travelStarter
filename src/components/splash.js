@@ -9,7 +9,7 @@ const Splash = (props) =>  {
                     <a to="/home" className="navbar-brand splash-brand">travelStarter</a>
                 </nav>
             </div>
-            <MaskImg className="splash-img" header="Discover A New City" />
+            <MaskImg className="splash-img" id="splash-lead" header="Experience Travel" />
         </div>
     )
 }

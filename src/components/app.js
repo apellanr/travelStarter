@@ -14,6 +14,7 @@ import LoginPage from './login_page';
 import Signup from './signup';
 import DraftPage from './draft';
 import Splash from './splash';
+import About from'./about';
 
 
 const nav_links = [
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="/my_itineraries" component={SavedItineraries}/>
             <Route path="/discover" component={FindItin} />
             <Route path="/draft" component={DraftPage}/>
+            <Route path="/about" component={About}/>
         </div>
     </div>
 );

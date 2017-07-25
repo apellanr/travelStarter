@@ -1,11 +1,10 @@
 #root {
-    margin-top: 53px;
-    height: 92vh;
+     margin-top: 53px; 
+     height: 92vh; 
 }
 
 html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+     overflow-x: hidden; 
 }
 
 * {
@@ -13,7 +12,8 @@ html, body {
     box-sizing: border-box;
 }
 
-/* NAVBAR COMPONENT */
+/*--- NAVBAR COMPONENT 
+-------------------------------------------------- */
 .navbar, .footer {
    background-color: #26628A;
 }
@@ -32,7 +32,8 @@ html, body {
     font-size: 30px;
 }
 
-/* ICON COMPONENT */
+/*--- ICON 
+-------------------------------------------------- */
 .icon-text:hover {
     color: #FDB927;
     text-decoration:none;
@@ -59,6 +60,7 @@ html, body {
     justify-content: center;
     flex-direction: row;
     padding: 10px;
+    margin-top: -10px;
 }
 
 .ballicon {
@@ -70,23 +72,9 @@ a {
     color: #333;
 }
 
-.filter-btns {
-    font-size: 17px;
-}
 
-.filter-container {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    margin-bottom: 10px;
-}
-
-/* SPLASH PAGE */
-.hide {
-    display: none;
-}
-
-/* BUILD PAGE */
+/*--- BUILD PAGE 
+-------------------------------------------------- */
 .buildsearchpage {
     margin-bottom: 53px;
 }
@@ -102,7 +90,24 @@ a {
     background-color: white;
 }
 
-/* LOGIN PAGE // SIGNUP */
+.btn-primary {
+    color: white !important;
+}
+
+.filter-btns {
+     font-size: 17px; 
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* margin-bottom: 10px; */
+    padding: 20px;
+}
+
+/*--- LOGIN PAGE // SIGNUP 
+-------------------------------------------------- */
 .login-header {
     text-align: center;
     margin-top: 10px;
@@ -118,11 +123,12 @@ a {
     background-color: lightgray;
 }
 
-/* PROFILE HERO IMG // CONTENT */
+/*--- PROFILE HERO IMG // CONTENT 
+-------------------------------------------------- */
 .profile-hero {
     height: 40vh;
     border-radius: 0;
-    background: url("./imgs/map.jpg");
+    background: url("./imgs/profile-hero.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -134,33 +140,46 @@ a {
     text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 }
 
-/* COMP CONTAINERS */
+/*--- CONTAINERS 
+-------------------------------------------------- */
 .discover-container {
     margin-bottom: 50px;
 }
 
 .discover-header {
-    margin-top: -90px;
+    margin-top: 20px;
+}
+
+.hide {
+    display: none;
 }
 
 .city-img {
-    margin-bottom: 10px;
-    height: 35vh;
+    margin-bottom: 3px;
+    height: 38vh;
 }
 
 .la, .Los_Angeles {
-    background: url("./imgs/la.jpg");
+    background: url("./imgs/city-la.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .mad, .Madrid {
-    background: url("./imgs/madrid.jpg");
+    background: url("./imgs/city-madrid.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-/* CARD COMPONENT */
+#splash-lead {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    padding: 7px;
+}
+
+/*--- CARD COMPONENT 
+-------------------------------------------------- */
 .card-img-top {
     max-width: 100%;
     height: 200px;
@@ -169,6 +188,7 @@ a {
 .card-grid {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 50px;
 }
 
 .trip-block {
@@ -180,7 +200,7 @@ a {
 
 .city-jumbo {
     margin-top: 0;
-    height: 94vh;
+    height: 92vh;
     border-radius: 0;
     background: url('imgs/los_angeles.jpg');
     background-position: center center;
@@ -189,6 +209,15 @@ a {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.published-trips {
+    background: url('imgs/moat.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 85vh;
 }
 
 .jumbo-content, .trip-name {
@@ -201,16 +230,13 @@ a {
     color: white;
 }
 
-.trip-card {
-    margin: 10px 0;
-}
-
 .header-text {
-    padding: 13px;
+    padding: 5px;
     font-family: 'Playfair Display', serif;
 }
 
-/* SIDENAV COMPONENT*/
+/*--- SIDENAV COMPONENT 
+-------------------------------------------------- */
 .hidden-sideNav {
     height: 100%;
     width: 290px;
@@ -254,9 +280,7 @@ a {
     color: rgb(25, 106, 229);
 }
 
-hr {
-    margin-top: -7px;
-}
+hr { margin-top: -7px }
 
 .sideNav-img {
     position: absolute;
@@ -266,7 +290,8 @@ hr {
     height: 36px;
 }
 
-/* CSS Loader */
+/*--- CSS Loader 
+-------------------------------------------------- */
 .spinner {
   width: 40px;
   height: 40px;
@@ -289,9 +314,7 @@ hr {
   animation: sk-bounce 2.0s infinite ease-in-out;
 }
 
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+.double-bounce2 { -webkit-animation-delay: -1.0s; animation-delay: -1.0s;
 }
 
 @-webkit-keyframes sk-bounce {
@@ -300,16 +323,12 @@ hr {
 }
 
 @keyframes sk-bounce {
-  0%, 100% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% { 
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
+  0%, 100% { transform: scale(0.0); -webkit-transform: scale(0.0);} 
+  50% { transform: scale(1.0); -webkit-transform: scale(1.0); }
 }
 
-/*       */
+/*--- MEDIA QUERIES 
+-------------------------------------------------- */
 
 @media (min-width: 760px) { 
     .profile-hero {
@@ -327,9 +346,10 @@ hr {
         font-size: 60px;
         margin-top: 60px;
     }
-     .splash-img {
+     .splash-img, .published-trips {
          background: url('imgs/firenze.jpg');
          background-position: bottom center;
+         height: 95vh;
     } 
 }
 
@@ -345,4 +365,42 @@ hr {
         flex-wrap: wrap;
         align-items: center;
     }
+}
+
+/* ABOUT PAGE CONTENT
+-------------------------------------------------- */
+.mission, .app-note {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.mission > p, .app-note {
+    text-align: justify;
+}
+
+.about {
+    background-color: darkseagreen;
+    color: white;
+}
+
+.about .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.about h3 {
+    font-weight: normal;
+    font-size: 1.50rem;
+    margin-top: 0.75rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.about h4 {
+    padding: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.about .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+    text-align: justify;
 }

@@ -17,7 +17,6 @@ class Navbar extends Component {
     }
 
     toggleNav() {
-        console.log('burger clicked');
         this.setState({
             shiftIn: !this.state.shiftIn
         });
