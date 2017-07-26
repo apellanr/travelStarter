@@ -14,7 +14,7 @@ class ItineraryDetail extends Component {
                 <div>Loading...</div>
             )
         }
-        console.log('from itin', this.props.itinerary)
+        
         return(
             <div className="card" style={{width: 20 + 'rem'}}>
                 <img className="card-img-top" src={this.props.itinerary.places[0].images[0].source_url} alt="Card image cap"/>

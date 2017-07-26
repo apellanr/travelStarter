@@ -7,11 +7,13 @@ import {
 import _ from 'lodash';
 import { fetchPlaces, currentPage, clearPlaces } from '../actions';
 import SearchList from './searchlist';
+import ReactDOM from 'react-dom';
 
-class SearchPage extends Component {    
-    componentDidUpdate(prevProps) {
+class SearchPage extends Component {
+    componentDidUpdate(prevProps){
         if (this.props.location !== prevProps.location) {
-        window.scrollTo(0, 0)
+            const elem = ReactDOM.findDOMNode(this.refs.searchBtns);
+            elem.scrollIntoView(true);
         }
     }
 
@@ -27,7 +29,7 @@ class SearchPage extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <div>
+            <div ref='searchBtns'>
                <div className="card trip-card">
                     <img className={`card-img-top ${this.props.match.params.id}`}/>
                     <div className="card-block trip-block">

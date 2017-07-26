@@ -29,7 +29,6 @@ class SearchList extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        
         if (this.props.location !== prevProps.location) {
             const addressArray = this.props.match.url.split('/');
             this.props.currentPage([this.props.match.params.searchQuery, addressArray[5]]);
