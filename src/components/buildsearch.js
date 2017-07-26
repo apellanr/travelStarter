@@ -21,7 +21,6 @@ class BuildSearch extends Component {
     }
     
     toggleActive() {
-        console.warn('build tab clicked');
         this.setState({
             active: !this.state.active
         })

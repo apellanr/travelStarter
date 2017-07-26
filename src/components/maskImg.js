@@ -3,13 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createNewItin } from '../actions';
 
-// let style = {
-//     'backgroundImage' : 'url(https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg)',
-// }
-
 class MaskImg extends Component {
     handleClick() {
-        console.log('Clicked!')
         this.props.createNewItin();
     }
     
