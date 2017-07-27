@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import data from '../data';
-import { viewCurrentDraft, removePlace, editTitleTrue, editTitleFalse, editTitleText } from '../actions';
+import { viewCurrentDraft, removePlace, editTitleTrue, editTitleFalse, editTitleText, publishItin } from '../actions';
 
 class BuildPage extends Component {
     componentDidMount() {
@@ -52,6 +51,13 @@ class BuildPage extends Component {
         this.props.editTitleText(val, this.props.itinId).then(() => this.props.editTitleFalse()).then(() => this.props.viewCurrentDraft(this.props.itinId))
     }
 
+    handleSave() {
+        console.log(this.props.currentDraft)
+        this.props.publishItin(this.props.currentDraft, this.props.itinId).then(() => {
+            this.props.history.push('/my_itineraries')
+        })
+    }
+
     renderField(field) {
         return(
             <div className='form-group'>
@@ -72,17 +78,17 @@ class BuildPage extends Component {
         }
 
         return(
-            <div>
+            <div style={{'marginBottom': '1vh'}}>
                  {!this.props.editTitle.editTitle 
-                    ? <h2 className="text-center">{this.props.currentDraft.itin.name}<button className='btn btn-outline-warning' onClick={() => this.handleTrueToggle()}>Edit</button></h2> 
-                    : <div><Field name='name' component={this.renderField}/><button className='btn btn-outline-success' onClick={handleSubmit((val) => this.handleEdit(val))}>Save</button><button className='btn btn-outline-default' onClick={() => this.props.editTitleFalse()}>Cancel</button></div>} 
+                    ? <div className='text-center'><h2>{this.props.currentDraft.itin.name}</h2><button className='btn btn-outline-warning' onClick={() => this.handleTrueToggle()}>Edit</button><button className='btn btn-outline-success' onClick={() => {this.handleSave()}}>Publish</button></div>
+                    : <div className='text-center'><Field name='name' component={this.renderField}/><button className='btn btn-outline-success' onClick={handleSubmit((val) => this.handleEdit(val))}>Save</button><button className='btn btn-outline-danger' onClick={() => this.props.editTitleFalse()}>Cancel</button></div>} 
             </div>
         )
     }
 
     render() {
         return(
-            <div>
+            <div style={{'marginTop': '1vh'}}>
                 {this.title()}
                 <div>
                      {this.list()} 
@@ -108,4 +114,4 @@ BuildPage = reduxForm({
     enableReinitialize: true
 })(BuildPage);
 
-export default connect(mapStateToProps, { viewCurrentDraft, removePlace, editTitleTrue, editTitleFalse, editTitleText })(BuildPage);
+export default connect(mapStateToProps, { viewCurrentDraft, removePlace, editTitleTrue, editTitleFalse, editTitleText, publishItin })(BuildPage);

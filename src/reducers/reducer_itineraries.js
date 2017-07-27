@@ -1,6 +1,3 @@
-import drafts from '../draftdata';
-import saved from '../saved_data';
-
 const DEFAULT_STATE = {};
 
 export default function(state = DEFAULT_STATE, action) {

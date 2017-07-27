@@ -70,8 +70,7 @@ class SearchList extends Component {
 
         return pages.map((page) => {
             return(
-                <li className='page-item' key={page}>
-                    {/*<Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${page}`} key={page} onClick={() => this.handlePageClick(page)}>{page}</Link>*/}
+                <li className={`page-item ${Number(this.props.currentSearchPage[1]) === page ? 'active' : ''}`} key={page}>
                     <Link className='page-link' to={`/buildsearch/search/${addressArray[3]}/${this.props.match.params.searchQuery}/${page}`} key={page} onClick={() => this.handlePageClick([this.props.match.params.searchQuery, page])}>{page}</Link>
                 </li>
             )
@@ -99,7 +98,6 @@ class SearchList extends Component {
     }
 
     render() {
-        // console.log(this.props.currentSearchPage);
         const addressArray = this.props.match.url.split('/');
         let lastPage = null;
         if(!this.props.poi) {

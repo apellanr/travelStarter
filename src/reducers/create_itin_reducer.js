@@ -6,6 +6,8 @@ export default function(state = DEFAULT_STATE, action) {
     switch(action.type){
         case actions.CREATE_ITIN:
             return {...state, itinId: action.payload};
+        case actions.SET_ITIN:
+            return {...state, itinId: action.payload};
         default:
             return state;
     }

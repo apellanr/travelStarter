@@ -26,7 +26,7 @@ class ItineraryDetail extends Component {
                     {this.list()}
                 </ul> 
                 <div className="card-block">
-                    <a onClick = {()=> this.props.itineraryClose()} type="button" className="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    <a onClick = {()=> this.props.itineraryClose()} type="button" className="close" aria-label="Close"><span style={{padding: '0 5px'}} aria-hidden="true">&times;</span></a>
                 </div>
             </div>
         );

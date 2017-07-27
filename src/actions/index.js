@@ -7,8 +7,6 @@ const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
 const ROOT_URL = 'https://thawing-beyond-11730.herokuapp.com/itin';
 
-const LOGIN_URL = 'http://localhost:8888/travel_final_project/prototypes/facebookLogin/fb_login_data/fb_user_info.php';
-
 export function fetchPlaces(city, query) {
     const request = axios.get(`${BASE_URL}${city}${END_URL}${query}`, {
         params: {
@@ -115,6 +113,15 @@ export function editTitleText(val, id) {
     }
 }
 
+export function publishItin(itin, id) {
+    const request = axios.patch(`${ROOT_URL}/publish/${id}`, itin);
+
+    return{
+        type: actions.PUBLISH_ITIN,
+        payload: request
+    }
+}
+
 export function createNewItin() {
     return(dispatch) => {
         const user = { userId: 1};
@@ -127,75 +134,23 @@ export function createNewItin() {
     }
 }
 
-export function signUp({email, password}) {
-    return (dispatch) => {
-        axios.post(`${LOGIN_URL}/signup`, { email, password }).then((resp) => {
-            console.log('response from signup:', resp);
+export function setNewItin(id) {
+    const userObj = {data: {_id: id}};
 
-            localStorage.setItem('token', resp.data.token)
-
-            dispatch({
-                type: action.SIGN_UP,
-            })
-        }).catch( error => {
-            console.log('error', error.response.data.error);
-            dispatch(sendError(error.response.data.error));
-        });
-    }    
-}
-
-export function signIn({ email, password }) {
-    return (dispatch) => {
-        axios.post(`${LOGIN_URL}/signin`, { email, password}).then((resp) => {
-            console.log('response from signin:', resp);
-
-            localStorage.setItem('token', resp.data.token)
-
-            dispatch({
-                type: actions.SIGN_IN,
-            })
-        }).catch( error => {
-                
-        })
+    return{
+        type: actions.SET_ITIN,
+        payload: userObj
     }
 }
 
-export function facebookSignin(facebookUser) {
-    return (dispatch) => {
-        axios.post(`${LOGIN_URL}`, facebookUser).then((resp) => {
-            console.log('response from signin:', resp);
+export function deleteItin(id) {
+    const request = axios.delete(`${ROOT_URL}/${id}`);
 
-            localStorage.setItem('token', resp.data.token)
-
-            dispatch({
-                type: actions.SIGN_IN,
-            })
-        }).catch( error => {
-                console.log('There was an error:', error);
-
-                dispatch({ type: 'idk'});
-        })
+    return{
+        type: actions.DELETE_ITIN,
+        payload: request
     }
 }
-
-export function facebookSignup(facebookUser) {
-    return (dispatch) => {
-        axios.post(`${LOGIN_URL}`, facebookUser).then((resp) => {
-            console.log('response from signup:', resp);
-
-            localStorage.setItem('token', resp.data.token)
-
-            dispatch({
-                type: actions.SIGN_UP,
-            })
-        }).catch( error => {
-                console.log('There was an error:', error);
-
-                dispatch({ type: 'idk'});
-        })
-    }
-}
-
 
 function sendError(error){
     return {

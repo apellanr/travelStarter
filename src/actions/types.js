@@ -8,13 +8,14 @@ export default {
     SELECT_ITINERARY: 'select_itinerary',
     FETCH_ITINERARIES: 'fetch_itineraries',
     ITINERARY_SELECTED: 'itinerary_selected',
-    SIGN_UP: 'sign-up',
-    SIGN_IN: 'sign-in',
     ERROR: 'error',
     GET_DRAFTS: 'get_drafts',
     VIEW_CURRENT_DRAFT: 'view_current_draft',
     EDIT_TITLE_TRUE: 'edit_title_true',
     EDIT_TITLE_FALSE: 'edit_title_false',
     EDIT_TITLE: 'edit_title',
-    CREATE_ITIN: 'create_itin'
+    CREATE_ITIN: 'create_itin',
+    DELETE_ITIN: 'delete_itin',
+    SET_ITIN: 'set_itin',
+    PUBLISH_ITIN: 'publish_itin'
 }
