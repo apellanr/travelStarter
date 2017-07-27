@@ -3,7 +3,7 @@
 #### Senior Devs
 - Ryan Apellanes
 - Anna Thomas
-- Seung "Alex" Lee
+- Alex Seung Jun Lee
 - Jinwoo Cho
 
 #### Junior Devs
@@ -23,6 +23,4 @@ Our goal is to help individuals take a step forward with traveling. In the near 
 Traveling can help you discover hidden gems in any city. Whether if it is hiking up to the Hollywood Sign in Los Angeles, or dancing all night somewhere in Spain - it's all up to you.
 
 Cheers to your next adventure!
-
-- travelStarter
 
