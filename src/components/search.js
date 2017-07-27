@@ -30,7 +30,7 @@ class SearchPage extends Component {
         const { handleSubmit } = this.props;
         return(
             <div ref='searchBtns'>
-               <div className="card trip-card">
+               <div className="card trip-card" style={{'marginTop': '1vh'}}>
                     <img className={`card-img-top ${this.props.match.params.id}`}/>
                     <div className="card-block trip-block">
                         <h5 className="text-center">Trip to {this.replaceUnderscore(this.props.match.params.id)}</h5>

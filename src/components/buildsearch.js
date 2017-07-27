@@ -41,14 +41,16 @@ class BuildSearch extends Component {
     
     render() {
         const addressArray = this.props.match.url.split('/');
+        const noBorder = {borderBottom: '1px solid white'};
+        const border = {borderBottom: '1px solid #DDDDDD'};
   
         return(
             <div className='buildsearchpage'>
                 <ul className="nav nav-tabs build-tabs">
-                    <li className='nav-item'>
+                    <li className='nav-item' style={addressArray[2] === 'search' ? noBorder : border}>
                         {this.searchLink()}
                     </li>
-                    <li className='nav-item'>
+                    <li className='nav-item' style={addressArray[2] === 'build' ? noBorder : border}>
                         <Link className={addressArray[2] === 'build' ?  'nav-link tab-links active' : ' nav-link tab-links'} to={`/buildsearch/build/${this.props.match.params.id}`}>Build</Link>
                     </li>
                 </ul>

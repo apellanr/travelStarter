@@ -7,8 +7,6 @@ const ACCOUNT = '2FYB6LGM';
 const TOKEN = 'lkuszx1cd7srxliatwfs0dalj0blvyis';
 const ROOT_URL = 'https://thawing-beyond-11730.herokuapp.com/itin';
 
-const LOGIN_URL = 'http://localhost:8888/travel_final_project/prototypes/facebookLogin/fb_login_data/fb_user_info.php';
-
 export function fetchPlaces(city, query) {
     const request = axios.get(`${BASE_URL}${city}${END_URL}${query}`, {
         params: {
