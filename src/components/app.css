@@ -1,23 +1,429 @@
-.app {
-    background-color: #000;
-    color: #fff;
-    padding: 50px;
+#root {
+     margin-top: 53px; 
+     height: 92vh; 
+}
+
+html, body {
+     overflow-x: hidden; 
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/*--- NAVBAR COMPONENT 
+-------------------------------------------------- */
+.navbar, .footer {
+   background-color: #26628A;
+}
+
+.navbar-toggler {
+    border: none;
+    cursor: pointer;
+}
+
+.splash-brand {
+    font-size: 23px;
+    color: white !important;
+}
+
+.menu-icon {
+    font-size: 30px;
+}
+
+/*--- ICON 
+-------------------------------------------------- */
+.icon-text:hover {
+    color: #FDB927;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.icon-text {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.profile-icons {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor:pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px;
+    margin-top: -10px;
+}
+
+.ballicon {
     text-align: center;
 }
 
-.app img {
-    height: 100px;
+a {
+    text-decoration: none;
+    color: #333;
 }
 
-.rotate {
-    animation: spin 10s linear infinite;
+
+/*--- BUILD PAGE 
+-------------------------------------------------- */
+.buildsearchpage {
+    margin-bottom: 53px;
 }
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
+.build-tabs {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1%;
+}
+
+.tab-links {
+    width: 187px;
+    text-align: center;
+    background-color: white;
+}
+
+.btn-primary {
+    color: white !important;
+}
+
+.filter-btns {
+     font-size: 17px; 
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* margin-bottom: 10px; */
+    padding: 20px;
+}
+
+/*--- LOGIN PAGE // SIGNUP 
+-------------------------------------------------- */
+.login-header {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.user-button {
+    padding: 15px;
+    border-radius: 0;
+}
+
+.selected{
+    background-color: lightgray;
+}
+
+/*--- PROFILE HERO IMG // CONTENT 
+-------------------------------------------------- */
+.profile-hero {
+    height: 40vh;
+    border-radius: 0;
+    background: url("./imgs/profile-hero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profile-lead {
+    font-size: 40px;
+    font-family: 'Playfair Display', serif;
+    margin-top: 60px;
+    text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+}
+
+/*--- CONTAINERS 
+-------------------------------------------------- */
+.discover-container {
+    margin-bottom: 50px;
+}
+
+.discover-header {
+    margin-top: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+.city-img {
+    margin-bottom: 3px;
+    height: 38vh;
+}
+
+.la, .Los_Angeles {
+    background: url("./imgs/city-la.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mad, .Madrid {
+    background: url("./imgs/city-madrid.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#splash-lead {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    padding: 7px;
+}
+
+/*--- CARD COMPONENT 
+-------------------------------------------------- */
+.card-img-top {
+    max-width: 100%;
+    height: 200px; 
+    /* height: 23vh; */
+}
+
+.card-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.trip-block {
+    padding: 10px;
+    border-radius: 0;
+    background: lightgray;
+    font-family: 'Playfair Display', serif;
+}
+
+.city-jumbo {
+    margin-top: 0;
+    height: 92vh;
+    border-radius: 0;
+    background: url('imgs/los_angeles.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.published-trips {
+    background: url('imgs/moat.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 85vh;
+}
+
+.drafts-hero {
+    background: url('imgs/shore.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 85vh;
+}
+
+.mytrips-hero {
+    background: url('imgs/waterfall.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 85vh;
+}
+
+.jumbo-content, .trip-name {
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:100%;
+    color: white;
+}
+
+.header-text {
+    padding: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+/*--- SIDENAV COMPONENT 
+-------------------------------------------------- */
+.hidden-sideNav {
+    height: 100%;
+    width: 290px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: transform 450ms;
+    transform: translate(-300px, 0px);
+    box-sizing: border-box;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 0px;
+    overflow-x: hidden;
+    padding-top: 60px;
+    background-color: #f3f3f3;
+}
+
+.visible {
+    transform: translate(0px, 0px);
+}
+
+.sideNav-links {
+    margin-top: 5px;
+}
+
+.hidden-sideNav a {
+    padding: 6px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.hidden-sideNav a:hover{
+    color: rgb(25, 106, 229);
+}
+
+.hidden-sideNav a:active {
+    color: rgb(25, 106, 229);
+}
+
+hr { margin-top: -7px }
+
+.sideNav-img {
+    position: absolute;
+    top: 11px;
+    left: 30px;
+    width: 226px;
+    height: 36px;
+}
+
+/*--- CSS Loader 
+-------------------------------------------------- */
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 { -webkit-animation-delay: -1.0s; animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { transform: scale(0.0); -webkit-transform: scale(0.0);} 
+  50% { transform: scale(1.0); -webkit-transform: scale(1.0); }
+}
+
+/*--- MEDIA QUERIES 
+-------------------------------------------------- */
+
+@media (min-width: 760px) { 
+    .profile-hero {
+        background: url("./imgs/road.jpg");
+        height: 40vh;
+        border-radius: 0;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
     }
-    to {
-        transform: rotate(360deg);
+    #root {
+        height: 95vh;
     }
+    .profile-lead {
+        font-size: 60px;
+        margin-top: 60px;
+    }
+     .splash-img, .published-trips {
+         background: url('imgs/firenze.jpg');
+         background-position: bottom center;
+         height: 95vh;
+    } 
+    .card-img-top {
+        height: 21vh;
+    }
+}
+
+@media (min-width: 470px) {
+     .Madrid, .Los_Angeles {
+        background-position: center center;
+    }
+}
+
+@media (max-width: 670px) {
+    .card-grid {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+/* ABOUT PAGE CONTENT
+-------------------------------------------------- */
+.mission, .app-note {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.mission > p, .app-note {
+    text-align: justify;
+}
+
+.about {
+    background-color: darkseagreen;
+    color: white;
+}
+
+.about .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.about h3 {
+    font-weight: normal;
+    font-size: 1.50rem;
+    margin-top: 0.75rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.about h4 {
+    padding: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.about .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+    text-align: justify;
 }

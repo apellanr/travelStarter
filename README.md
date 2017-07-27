@@ -1,11 +1,9 @@
-# C4.17_travelStarter
+# travelStarter
 
 #### Senior Devs
 - Ryan Apellanes
-- Insoo Lee
 - Anna Thomas
-- Seung "Alex" Lee
-- David Sung
+- Alex Seung Jun Lee
 - Jinwoo Cho
 
 #### Junior Devs
@@ -20,5 +18,9 @@
 
 Summary
 --------------------
+Our goal is to help individuals take a step forward with traveling. In the near future, we would love for people to build their own trips or stumble upon other trips that experienced travelers have embarked on.
 
+Traveling can help you discover hidden gems in any city. Whether if it is hiking up to the Hollywood Sign in Los Angeles, or dancing all night somewhere in Spain - it's all up to you.
+
+Cheers to your next adventure!
 
