@@ -12,6 +12,7 @@ const SideNav = (props) => {
                 <Link to="/buildsearch/cityselect">Destinations</Link>
                 <Link to="/discover">Discover</Link>
                 <Link to="/my_itineraries">My Trips</Link>
+                <Link to="/draft">Drafts</Link>
                 <Link to="/about">About</Link>
             </div>
         </div>

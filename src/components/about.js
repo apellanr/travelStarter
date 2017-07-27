@@ -38,7 +38,7 @@ export default () => {
                 </div>  
             </div>
 
-            <div className="app-note">
+            <div className="app-note text-center">
                 <h4>Note</h4>
                 <p>Our application was built for smaller handheld devices. Please direct to any mobile device for the best experience.</p>
                 

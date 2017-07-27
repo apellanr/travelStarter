@@ -82,6 +82,7 @@ a {
 .build-tabs {
     display: flex;
     justify-content: space-around;
+    padding-top: 1%;
 }
 
 .tab-links {
@@ -182,7 +183,8 @@ a {
 -------------------------------------------------- */
 .card-img-top {
     max-width: 100%;
-    height: 200px;
+    height: 200px; 
+    /* height: 23vh; */
 }
 
 .card-grid {
@@ -213,6 +215,24 @@ a {
 
 .published-trips {
     background: url('imgs/moat.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 85vh;
+}
+
+.drafts-hero {
+    background: url('imgs/shore.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 85vh;
+}
+
+.mytrips-hero {
+    background: url('imgs/waterfall.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -351,6 +371,9 @@ hr { margin-top: -7px }
          background-position: bottom center;
          height: 95vh;
     } 
+    .card-img-top {
+        height: 21vh;
+    }
 }
 
 @media (min-width: 470px) {

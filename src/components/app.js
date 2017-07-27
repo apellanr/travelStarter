@@ -10,8 +10,6 @@ import BuildSearch from './buildsearch';
 import SavedItineraries from './my_itineraries';
 import FindItin from './discover';
 import BuildSearchCitySelect from './buildsearchcityselect';
-import LoginPage from './login_page';
-import Signup from './signup';
 import DraftPage from './draft';
 import Splash from './splash';
 import About from'./about';
@@ -24,15 +22,19 @@ const nav_links = [
     },
     {
         title: 'Destinations',
-        path:'/destinations'
+        path:'/buildsearch/cityselect'
     },
     {
         title: 'Discover',
         path:'/discover'
     },
     {
-        title: 'Itinerary',
+        title: 'My Trips',
         path: '/my_itineraries'
+    },
+    {
+        title: 'Drafts',
+        path: '/draft'
     },
     {
         title: 'About',
@@ -52,8 +54,6 @@ const App = () => (
             <Route path="/:anywhere" component={navbarComp} />
             <Route exact path="/" component={Splash} />
             <Route path="/home" component={Home} />
-            <Route path='/login' component={LoginPage} />
-            <Route path='/signup' component={Signup} />
             <Route path="/buildsearch/cityselect" component={BuildSearchCitySelect} />
             <Route path="/buildsearch/search/:id" component={BuildSearch} />
             <Route path="/buildsearch/build/:id" component={BuildSearch} />
