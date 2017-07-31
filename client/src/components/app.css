@@ -186,6 +186,10 @@ a {
     /* height: 23vh; */
 }
 
+.card {
+    margin-bottom: 1.5rem;
+}
+
 .card-grid {
     display: flex;
     justify-content: space-around;
