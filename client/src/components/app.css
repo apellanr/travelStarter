@@ -4,7 +4,7 @@
 }
 
 html, body {
-     overflow-x: hidden; 
+     /* overflow-x: hidden;  */
 }
 
 * {
@@ -126,7 +126,7 @@ a {
 /*--- PROFILE HERO IMG // CONTENT 
 -------------------------------------------------- */
 .profile-hero {
-    height: 35vh;
+    height: 32vh;
     border-radius: 0;
     background: url("./imgs/profile-hero.png");
     background-size: cover;
