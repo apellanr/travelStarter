@@ -10,10 +10,6 @@ const Splash = (props) =>  {
                 </nav>
             </div>
             <MaskImg className="splash-img" id="splash-lead" header="Experience Travel" />
-            <div className="app-note text-center">
-                <h4>Note</h4>
-                <p>Our application was built for smaller handheld devices. Please direct to any mobile device for the best experience.</p>
-            </div>
         </div>
     )
 }
